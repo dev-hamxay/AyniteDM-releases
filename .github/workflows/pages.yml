@@ -1,13 +1,11 @@
 name: Website
 
 # Builds website/ and deploys it to this repository's GitHub Pages (https://dev-hamxay.github.io/AyniteDM-releases/).
-# No secrets needed. Runs on every push to main, after a release is published, or by hand.
+# No secrets needed. Runs on every push to main, when the release pipeline requests it after publishing a version, or by hand.
 
 on:
   push:
     branches: [main]
-  release:
-    types: [published, edited]
   workflow_dispatch:
 
 permissions:
