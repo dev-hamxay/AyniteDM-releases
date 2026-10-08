@@ -210,7 +210,8 @@ function Footer() {
     <footer className="footer">
       <p>
         © {new Date().getFullYear()} <a href="https://aynitesoft.com" target="_blank" rel="noreferrer">AyniteSoft</a> ·{" "}
-        <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a>
+        <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a> ·{" "}
+        <a href={asset("privacy.html")}>Privacy policy</a>
       </p>
       {!DOWNLOAD_BASE && (
         <p className="warn">Site owner: set VITE_DOWNLOAD_BASE to the folder that holds update.json and the installer.</p>
