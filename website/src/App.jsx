@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  ASSETS, CHROME_STORE_URL, DOWNLOAD_BASE, FIREFOX_ADDON_URL, SUPPORT_URL, asset, baseDownload, fetchLatestRelease,
-  humanSize, siteDownload,
+  ASSETS, CHROME_STORE_URL, DOWNLOAD_BASE, FIREFOX_ADDON_URL, IS_LINUX_VISITOR, SUPPORT_URL, asset, baseDownload,
+  fetchLatestRelease, humanSize, siteDownload,
 } from "./release.js";
 
 const FEATURES = [
@@ -22,6 +22,7 @@ const FAQ = [
   ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, copy the link and AyniteDM pops up on its own, or drag the link onto the AyniteDM window."],
   ["Where do my files go?", "In a AyniteDM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
   ["Who makes AyniteDM, and what does it cost?", "AyniteDM is made and supported by AyniteSoft. Current prices and licence options are on aynitesoft.com. There are no ads and no bundled extras in the installer."],
+  ["Does it run on Linux or Mac?", "Linux, yes: there is a package for Ubuntu, Linux Mint and Debian, and an archive that runs on any other distribution. The browser add-on works the same way there. A Mac version is not available yet."],
 ];
 
 function useRelease() {
@@ -51,8 +52,18 @@ function Nav() {
   );
 }
 
-function DownloadButton({ loading, release }) {
+function DownloadButton({ loading, release, platform }) {
   if (loading) return <a className="btn primary" aria-disabled="true">Finding the latest version...</a>;
+  const deb = release?.linux?.deb;
+  const wantLinux = platform === "linux" || (platform === undefined && IS_LINUX_VISITOR);
+  if (wantLinux && deb) {
+    return (
+      <a className="btn primary" href={deb.url}>
+        Download for Linux
+        <span className="btn-sub">Version {release.version} · {humanSize(deb.size)} · Ubuntu, Mint, Debian</span>
+      </a>
+    );
+  }
   const href = release?.installer?.url || baseDownload(ASSETS.installerFallback);
   return (
     <a className="btn primary" href={href}>
@@ -61,6 +72,27 @@ function DownloadButton({ loading, release }) {
         {release ? `Version ${release.version} · ${humanSize(release.installer.size)} · ` : ""}Windows 10 and 11
       </span>
     </a>
+  );
+}
+
+function LinuxButtons({ release }) {
+  const linux = release?.linux;
+  if (!linux) return null;
+  return (
+    <>
+      {linux.deb && (
+        <a className="btn" href={linux.deb.url}>
+          Linux: Ubuntu, Mint, Debian
+          <span className="btn-sub">{humanSize(linux.deb.size)} · .deb package</span>
+        </a>
+      )}
+      {linux.tar && (
+        <a className="btn" href={linux.tar.url}>
+          Other Linux
+          <span className="btn-sub">{humanSize(linux.tar.size)} · archive, any distribution</span>
+        </a>
+      )}
+    </>
   );
 }
 
@@ -81,7 +113,7 @@ function Hero(props) {
         </div>
         <p className="fine">
           {release?.date && <>Released {release.date.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}. </>}
-          A product of AyniteSoft. No ads, no bundled extras.
+          {release?.linux ? "For Windows and Linux. " : ""}A product of AyniteSoft. No ads, no bundled extras.
         </p>
       </div>
       <figure className="hero-shot">
@@ -165,7 +197,7 @@ function Extension() {
 function Guide({ release }) {
   const steps = [
     ["Download the installer", `Click Download for Windows above. One file, about ${release?.installer?.size ? humanSize(release.installer.size) : "110 MB"}, with everything included.`],
-    ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. Choose whether you want a desktop icon and whether AyniteDM should start with Windows."],
+    ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. Choose whether you want a desktop icon and whether AyniteDM should start with Windows. On Linux, double-click the .deb package to install it, or extract the archive and run install.sh (or AyniteDM directly) from the folder it creates."],
     ["Add the browser add-on", "When AyniteDM starts for the first time it lists your browsers and sets the add-on up with a click. This is what makes the Download button appear on videos."],
     ["Download something", "Copy any link and AyniteDM opens by itself, ready to go. Or hover a video in your browser and click Download this video. Finished files land in the AyniteDM folder inside Downloads."],
     ["Keep it up to date", "AyniteDM tells you when a new version is out. Choose Check for Updates in the Tools menu and it installs itself. The video part updates the same way, more often, in seconds."],
@@ -231,7 +263,8 @@ export default function App() {
         <section id="download" className="section band">
           <h2>Get AyniteDM</h2>
           <div className="cta center">
-            <DownloadButton {...state} />
+            <DownloadButton {...state} platform="windows" />
+            <LinuxButtons release={state.release} />
             <a className="btn" href={CHROME_STORE_URL || siteDownload(ASSETS.chromeZip)}>Add-on for Chrome, Edge, Brave</a>
             <a className="btn" href={FIREFOX_ADDON_URL || siteDownload(ASSETS.firefoxXpi)}>Add-on for Firefox</a>
           </div>

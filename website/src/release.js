@@ -57,12 +57,28 @@ export async function fetchLatestRelease() {
   }
   if (!data || !data.version) return null;
   const name = data.url || data.file || ASSETS.installerFallback;
-  const installerUrl = /^https?:/i.test(name) ? name : baseDownload(name);
+  const resolve = (n) => (/^https?:/i.test(n) ? n : baseDownload(n));
+  // Linux packages, when the release has them: { deb: {url, size, name}, tar: {...} }
+  let linux = null;
+  if (data.linux && typeof data.linux === "object") {
+    linux = {};
+    for (const [kind, entry] of Object.entries(data.linux)) {
+      if (entry && entry.url) {
+        linux[kind] = { url: resolve(entry.url), size: Number(entry.size || 0), name: entry.url.split("/").pop() };
+      }
+    }
+    if (!Object.keys(linux).length) linux = null;
+  }
   return {
     version: String(data.version),
     date: data.date ? new Date(data.date) : null,
     notes: data.notes || "",
     sha256: data.sha256 || "",
-    installer: { url: installerUrl, size: Number(data.size || 0), name: name.split("/").pop() },
+    installer: { url: resolve(name), size: Number(data.size || 0), name: name.split("/").pop() },
+    linux,
   };
 }
+
+/** True when the visitor's browser reports a Linux desktop (not Android). */
+export const IS_LINUX_VISITOR =
+  typeof navigator !== "undefined" && /Linux|X11/i.test(navigator.userAgent) && !/Android/i.test(navigator.userAgent);
