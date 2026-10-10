@@ -9,6 +9,22 @@ export const CHROME_STORE_URL = import.meta.env.VITE_CHROME_STORE_URL || "";
 export const FIREFOX_ADDON_URL = import.meta.env.VITE_FIREFOX_ADDON_URL || "";
 export const SUPPORT_URL = import.meta.env.VITE_SUPPORT_URL || "https://aynitesoft.com";
 export const BUY_URL = import.meta.env.VITE_BUY_URL || SUPPORT_URL;
+export const FEEDBACK_URL = import.meta.env.VITE_FEEDBACK_URL || SUPPORT_URL;
+
+/** Real user reviews and listing ratings, kept in public/reviews.json and public/ratings.json.
+ *  reviews.json: [{ "name": "Full name or first name", "where": "City, Country (optional)", "text": "...", "date": "2026-10-12" }]
+ *  ratings.json: [{ "site": "Softpedia", "label": "Editor's pick" or "4.5 / 5", "url": "https://...", "badge": "ratings/softpedia.png" (optional) }]
+ *  Both sections stay hidden (reviews) or show the trust facts only (ratings) while the lists are empty. */
+export async function fetchJsonList(name) {
+  try {
+    const res = await fetch(asset(name), { cache: "no-cache" });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch (e) {
+    return [];
+  }
+}
 
 export const ASSETS = {
   chromeZip: "aynitedm-chrome-extension.zip",

@@ -77,3 +77,15 @@ npm run dev
 3. Under **Environment Variables** add `VITE_DOWNLOAD_BASE` and `VITE_BUY_URL` (Buy now buttons, defaults to the support address) and `VITE_SUPPORT_URL`, plus
    `VITE_CHROME_STORE_URL` and `VITE_FIREFOX_ADDON_URL` once the add-ons are published.
 4. Deploy. Point a domain such as `aynitedm.AyniteSoft` at the project in Vercel's Domains tab.
+
+## Reviews and ratings
+
+Two lists in `public/` feed the "What users say" and "Ratings and awards" sections; both start empty and the page
+shows honest placeholder content (an invitation to review, and the trust facts) until they are filled.
+
+- `public/reviews.json`: `[{"name": "Sara K.", "where": "Lahore", "text": "...", "date": "2026-10-12"}]`.
+  Only publish words a user actually wrote and agreed to share.
+- `public/ratings.json`: `[{"site": "Softpedia", "label": "4.5 / 5", "url": "https://...", "badge": "ratings/softpedia.png"}]`.
+  `label` in the form "4.5 / 5" is drawn as stars; any other text (for example "Editor's pick") is shown as is.
+  Put badge images in `public/ratings/`. Sites that review and rate Windows software and hand out badges: Softpedia,
+  MajorGeeks, FileHorse, Uptodown, Softonic and Download.com; submit the installer there to earn real listings.

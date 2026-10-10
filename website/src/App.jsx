@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import {
-  ASSETS, BUY_URL, CHROME_STORE_URL, DOWNLOAD_BASE, FIREFOX_ADDON_URL, IS_LINUX_VISITOR, SUPPORT_URL, asset,
-  baseDownload, fetchLatestRelease, humanSize, siteDownload,
+  ASSETS, BUY_URL, CHROME_STORE_URL, DOWNLOAD_BASE, FEEDBACK_URL, FIREFOX_ADDON_URL, IS_LINUX_VISITOR, SUPPORT_URL,
+  asset, baseDownload, fetchJsonList, fetchLatestRelease, humanSize, siteDownload,
 } from "./release.js";
+
+// True statements shown as badges next to the ratings, so the section is never empty or invented.
+const TRUST = [
+  ["No ads, no bundled extras", "The installer contains AyniteDM and nothing else."],
+  ["Checksum published", "Every installer's SHA-256 is shown here and checked by the updater."],
+  ["Your files stay yours", "Nothing about your downloads leaves your computer."],
+  ["Updates itself", "New versions and video-site fixes arrive on their own."],
+  ["Windows and Linux", "Windows 10 and 11, Ubuntu, Linux Mint, Debian and others."],
+  ["Made by AyniteSoft", "Built and supported by one company, with a privacy policy you can read."],
+];
 
 const VERSION_FALLBACK = "1.3.3";
 
@@ -78,6 +88,7 @@ const FAQ = [
   ["Windows says \"Windows protected your PC\". Is it safe?", "Yes, when the file came from this page. Click \"More info\" and check that the publisher reads AyniteSoft, then click \"Run anyway\". Windows shows that screen for programs it has not seen many times yet."],
   ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in AyniteDM and choose Check for Updates; the video part of the program updates itself in a few seconds, no reinstall needed."],
   ["Can it download videos that need me to be signed in?", "Yes. Use the Download button that the browser add-on shows on the video while you are signed in to the site, and AyniteDM uses that sign-in."],
+  ["Why is there no Download button on Netflix, Prime Video or Disney+?", "Those services encrypt their videos (DRM) and the browser only decrypts them inside a locked player. No download manager can save them, and getting around that protection is against the law in most countries, so AyniteDM does not try. The add-on tells you when a video is protected instead of leaving you guessing."],
   ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, copy the link and AyniteDM pops up on its own, or drag the link onto the AyniteDM window."],
   ["Where do my files go?", "In an AyniteDM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
   ["Does it run on Linux or Mac?", "Linux, yes: there is a package for Ubuntu, Linux Mint and Debian, and an archive that runs on any other distribution. The browser add-on works the same way there. A Mac version is not available yet."],
@@ -277,6 +288,92 @@ function WhatsNew({ release }) {
   );
 }
 
+function useJsonList(name) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    let alive = true;
+    fetchJsonList(name).then((list) => alive && setItems(list));
+    return () => { alive = false; };
+  }, [name]);
+  return items;
+}
+
+function Stars({ label }) {
+  // "4.5 / 5" style labels get drawn as stars; anything else is shown as text.
+  const m = /^(\d(?:\.\d)?)\s*\/\s*5/.exec(String(label || ""));
+  if (!m) return <span className="rating-label">{label}</span>;
+  const value = Math.max(0, Math.min(5, parseFloat(m[1])));
+  return (
+    <span className="stars" aria-label={`${value} out of 5`}>
+      <span className="stars-fill" style={{ width: `${(value / 5) * 100}%` }}>★★★★★</span>
+      <span className="stars-base">★★★★★</span>
+      <span className="rating-label">{label}</span>
+    </span>
+  );
+}
+
+function Ratings() {
+  const ratings = useJsonList("ratings.json");
+  return (
+    <section id="ratings" className="plain">
+      <div className="wrap">
+        <h2 className="center">{ratings.length ? "Ratings and awards" : "Safe to install"}</h2>
+        {ratings.length > 0 && (
+          <ul className="badges">
+            {ratings.map((r) => (
+              <li key={r.site + r.label}>
+                <a href={r.url} target="_blank" rel="noreferrer">
+                  {r.badge ? <img src={asset(r.badge)} alt="" /> : <span className="badge-mark">{(r.site || "?").slice(0, 1)}</span>}
+                  <strong>{r.site}</strong>
+                  <Stars label={r.label} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+        <ul className="trust">
+          {TRUST.map(([title, text]) => (
+            <li key={title}><strong>{title}</strong><span>{text}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const reviews = useJsonList("reviews.json");
+  return (
+    <section id="reviews" className="band light">
+      <div className="wrap">
+        <h2 className="center">What users say</h2>
+        {reviews.length > 0 ? (
+          <ul className="quotes">
+            {reviews.map((r, i) => (
+              <li key={i} className="quote">
+                <p>{r.text}</p>
+                <footer>
+                  <strong>{r.name}</strong>
+                  {r.where ? <span> · {r.where}</span> : null}
+                  {r.date ? <time dateTime={r.date}> · {new Date(r.date).toLocaleDateString(undefined, { year: "numeric", month: "short" })}</time> : null}
+                </footer>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="band-lead center">
+            AyniteDM is new, and only real words from real users go here. Using it? Tell us what works and what should
+            be better, and with your permission your review appears on this page.
+          </p>
+        )}
+        <p className="center">
+          <a className="btn outline" href={FEEDBACK_URL} target="_blank" rel="noreferrer">Share your experience</a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function AllFeatures() {
   return (
     <section id="all-features" className="plain">
@@ -406,6 +503,8 @@ export default function App() {
         <FeatureRows />
         <DownloadBand {...state} />
         <WhatsNew release={state.release} />
+        <Ratings />
+        <Testimonials />
         <AllFeatures />
         <Extension />
         <Guide release={state.release} />

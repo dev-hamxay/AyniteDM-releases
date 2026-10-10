@@ -198,6 +198,29 @@ li { margin: 0.3em 0; }
 .whatsnew ul { color: #d6e1f5; }
 .light-text { color: #b6c6e6; }
 
+/* ---------------------------------------------------------------- ratings, trust facts, reviews */
+.badges { list-style: none; padding: 0; margin: 20px 0 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; }
+.badges a { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text); text-align: center; padding: 18px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.badges a:hover { text-decoration: none; box-shadow: var(--shadow); }
+.badges img { height: 56px; width: auto; }
+.badge-mark { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: #fff; font-weight: 700; font-size: 1.4rem; }
+.badges strong { font-size: 0.95rem; }
+.stars { position: relative; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; line-height: 1; }
+.stars-base { color: var(--border); letter-spacing: 2px; }
+.stars-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: #f59e0b; letter-spacing: 2px; }
+.rating-label { font-size: 0.82rem; color: var(--muted); margin-left: 4px; }
+.trust { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+.trust li { position: relative; padding: 16px 18px 16px 74px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.trust li::before { content: ""; position: absolute; left: 18px; top: 16px; width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #35c48a, var(--green-dark)); box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35); }
+.trust li::after { content: ""; position: absolute; left: 31px; top: 29px; width: 14px; height: 8px; border-left: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(-45deg); }
+.trust strong { display: block; margin-bottom: 2px; }
+.trust span { display: block; color: var(--muted); font-size: 0.92rem; }
+.quotes { list-style: none; padding: 0; margin: 24px 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.quote { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px 18px; box-shadow: var(--shadow); position: relative; }
+.quote::before { content: "\201C"; position: absolute; top: 2px; left: 14px; font-size: 3.2rem; line-height: 1; color: var(--green); opacity: 0.5; font-family: Georgia, serif; }
+.quote p { margin: 8px 0 12px; color: var(--text); }
+.quote footer { color: var(--muted); font-size: 0.9rem; }
+
 /* ---------------------------------------------------------------- lists, panels, steps, faq */
 .plain { padding: 60px 0; }
 .checklist { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 28px; }
