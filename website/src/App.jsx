@@ -31,7 +31,7 @@ const ROWS = [
   {
     title: "A Download button on every video",
     text: "With the browser add-on, a small Download button appears on any video you hover, on YouTube and over 1,800 other sites. Pick the quality you want, or keep just the sound as MP3, and the video is saved to your computer.",
-    img: "screenshots/youtube-button.png", alt: "The AyniteDM Download button over a YouTube video with a list of qualities",
+    img: "screenshots/youtube-button.jpg", alt: "The AyniteDM Download button over a YouTube video with a list of qualities",
   },
   {
     title: "Record live broadcasts",
