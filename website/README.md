@@ -74,6 +74,6 @@ npm run dev
 1. Push the repository (it can stay private) to GitHub, GitLab or Bitbucket.
 2. In Vercel, **Add New Project**, import it, and set **Root Directory** to `website`. Vercel detects
    Vite; build command `npm run build`, output `dist` (also pinned in `vercel.json`).
-3. Under **Environment Variables** add `VITE_DOWNLOAD_BASE` and `VITE_SUPPORT_URL`, plus
+3. Under **Environment Variables** add `VITE_DOWNLOAD_BASE` and `VITE_BUY_URL` (Buy now buttons, defaults to the support address) and `VITE_SUPPORT_URL`, plus
    `VITE_CHROME_STORE_URL` and `VITE_FIREFOX_ADDON_URL` once the add-ons are published.
 4. Deploy. Point a domain such as `aynitedm.AyniteSoft` at the project in Vercel's Domains tab.

@@ -8,6 +8,7 @@ export const DOWNLOAD_BASE = rawBase && !rawBase.endsWith("/") ? rawBase + "/" :
 export const CHROME_STORE_URL = import.meta.env.VITE_CHROME_STORE_URL || "";
 export const FIREFOX_ADDON_URL = import.meta.env.VITE_FIREFOX_ADDON_URL || "";
 export const SUPPORT_URL = import.meta.env.VITE_SUPPORT_URL || "https://aynitesoft.com";
+export const BUY_URL = import.meta.env.VITE_BUY_URL || SUPPORT_URL;
 
 export const ASSETS = {
   chromeZip: "aynitedm-chrome-extension.zip",
