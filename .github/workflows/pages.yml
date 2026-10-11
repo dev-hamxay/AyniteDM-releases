@@ -26,6 +26,9 @@ jobs:
       VITE_SUPPORT_URL: ${{ vars.SUPPORT_URL || 'https://aynitesoft.com' }}
       VITE_CHROME_STORE_URL: ${{ vars.CHROME_STORE_URL }}
       VITE_FIREFOX_ADDON_URL: ${{ vars.FIREFOX_ADDON_URL }}
+      VITE_BUY_URL: ${{ vars.BUY_URL }}
+      VITE_FEEDBACK_URL: ${{ vars.FEEDBACK_URL }}
+      VITE_VIDEO_URL: ${{ vars.VIDEO_URL }}
     steps:
       - uses: actions/checkout@v4
 

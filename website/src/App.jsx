@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   ASSETS, BUY_URL, CHROME_STORE_URL, DOWNLOAD_BASE, FEEDBACK_URL, FIREFOX_ADDON_URL, IS_LINUX_VISITOR, SUPPORT_URL,
-  asset, baseDownload, fetchJsonList, fetchLatestRelease, humanSize, siteDownload,
+  VIDEO_URL, asset, baseDownload, fetchJsonList, fetchLatestRelease, humanSize, siteDownload,
 } from "./release.js";
 
 // True statements shown as badges next to the ratings, so the section is never empty or invented.
@@ -188,6 +188,7 @@ function Hero(props) {
         <div className="hero-cta">
           <PrimaryDownload {...props} />
         </div>
+        <p className="hero-os">For Windows 10 and 11{release?.linux ? " and Linux (Ubuntu, Mint, Debian and others)" : ""}</p>
         <p className="hero-fine">
           No ads, no bundled extras.{" "}
           {release?.linux ? <a href="#linux">Also for Linux.</a> : null}{" "}
@@ -228,6 +229,7 @@ function FeatureRows() {
       ))}
       <div className="wrap row-ctas">
         <a className="btn solid" href="#all-features">See all features</a>
+        {VIDEO_URL ? <a className="btn outline" href={VIDEO_URL} target="_blank" rel="noreferrer">Watch the video</a> : null}
         <a className="btn outline" href="#guide">How to install</a>
       </div>
     </section>

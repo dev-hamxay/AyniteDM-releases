@@ -10,6 +10,7 @@ export const FIREFOX_ADDON_URL = import.meta.env.VITE_FIREFOX_ADDON_URL || "";
 export const SUPPORT_URL = import.meta.env.VITE_SUPPORT_URL || "https://aynitesoft.com";
 export const BUY_URL = import.meta.env.VITE_BUY_URL || SUPPORT_URL;
 export const FEEDBACK_URL = import.meta.env.VITE_FEEDBACK_URL || SUPPORT_URL;
+export const VIDEO_URL = import.meta.env.VITE_VIDEO_URL || "";   // the YouTube presentation, once published
 
 /** Real user reviews and listing ratings, kept in public/reviews.json and public/ratings.json.
  *  reviews.json: [{ "name": "Full name or first name", "where": "City, Country (optional)", "text": "...", "date": "2026-10-12" }]
