@@ -76,6 +76,8 @@ npm run dev
    Vite; build command `npm run build`, output `dist` (also pinned in `vercel.json`).
 3. Under **Environment Variables** add `VITE_DOWNLOAD_BASE` and `VITE_BUY_URL` (Buy now buttons, defaults to the support address) and `VITE_SUPPORT_URL`, plus
    `VITE_CHROME_STORE_URL` and `VITE_FIREFOX_ADDON_URL` once the add-ons are published.
+   Set `VITE_SITE_URL` to the site's public address (it goes into the canonical links, link previews and
+   structured data; it defaults to the GitHub Pages address).
 4. Deploy. Point a domain such as `aynitedm.AyniteSoft` at the project in Vercel's Domains tab.
 
 ## Reviews and ratings

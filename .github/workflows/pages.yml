@@ -23,6 +23,7 @@ jobs:
     env:
       VITE_DOWNLOAD_BASE: https://github.com/${{ github.repository }}/releases/latest/download/
       VITE_BASE_PATH: /${{ github.event.repository.name }}/
+      VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
       VITE_SUPPORT_URL: ${{ vars.SUPPORT_URL || 'https://aynitesoft.com' }}
       VITE_CHROME_STORE_URL: ${{ vars.CHROME_STORE_URL }}
       VITE_FIREFOX_ADDON_URL: ${{ vars.FIREFOX_ADDON_URL }}

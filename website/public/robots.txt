@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dev-hamxay.github.io/AyniteDM-releases/sitemap.xml

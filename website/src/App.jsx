@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
 import {
-  ASSETS, BUY_URL, CHROME_STORE_URL, DOWNLOAD_BASE, FEEDBACK_URL, FIREFOX_ADDON_URL, IS_LINUX_VISITOR, SUPPORT_URL,
-  VIDEO_URL, asset, baseDownload, fetchJsonList, fetchLatestRelease, humanSize, siteDownload,
+  ASSETS, BUY_URL, CHROME_STORE_URL, FEEDBACK_URL, FIREFOX_ADDON_URL, SUPPORTED_SITES, VERSION_FALLBACK, VIDEO_URL,
+  asset, fetchJsonList, formatDate, humanSize, siteDownload,
 } from "./release.js";
+import { DownloadBand, Footer, Header, PrimaryDownload, Shot, page, useRelease } from "./shared.jsx";
 
 // True statements shown as badges next to the ratings, so the section is never empty or invented.
 const TRUST = [
   ["No ads, no bundled extras", "The installer contains AyniteDM and nothing else."],
-  ["Checksum published", "Every installer's SHA-256 is shown here and checked by the updater."],
+  ["Every download can be verified", "The installer's fingerprint is published here, and the built-in updater checks it before installing."],
   ["Your files stay yours", "Nothing about your downloads leaves your computer."],
   ["Updates itself", "New versions and video-site fixes arrive on their own."],
   ["Windows and Linux", "Windows 10 and 11, Ubuntu, Linux Mint, Debian and others."],
   ["Made by AyniteSoft", "Built and supported by one company, with a privacy policy you can read."],
 ];
 
-const VERSION_FALLBACK = "1.3.3";
-
 // Feature rows, in the order they appear: text on one side, a picture of the program on the other.
 const ROWS = [
   {
     title: "Download faster and more reliably",
-    text: "AyniteDM fetches several parts of a file at the same time, so big downloads arrive several times faster than in a browser. Pause a download and continue it later, even after a restart. If the connection drops, AyniteDM waits for the server and picks up where it left off on its own.",
+    text: "AyniteDM fetches several parts of a file at the same time, so big downloads usually arrive much faster than in a browser. Pause a download and continue it later, even after a restart. If the connection drops, AyniteDM waits for the server and picks up where it left off on its own.",
     img: "screenshots/main.png", alt: "AyniteDM main window with a list of downloads, progress bars and speeds",
   },
   {
@@ -30,8 +29,9 @@ const ROWS = [
   },
   {
     title: "A Download button on every video",
-    text: "With the browser add-on, a small Download button appears on any video you hover, on YouTube and over 1,800 other sites. Pick the quality you want, or keep just the sound as MP3, and the video is saved to your computer.",
+    text: `With the browser add-on, a small Download button appears on any video you hover, on YouTube and ${SUPPORTED_SITES}. Pick the quality you want, up to 4K where the site offers it, or keep just the sound as MP3, and the video is saved to your computer.`,
     img: "screenshots/youtube-button.jpg", alt: "The AyniteDM Download button over a YouTube video with a list of qualities",
+    more: { href: page("youtube"), label: "How to save a YouTube video in 4K or as MP3" },
   },
   {
     title: "Record live broadcasts",
@@ -56,122 +56,45 @@ const ROWS = [
   },
   {
     title: "Torrents and magnet links too",
-    text: "Open a magnet link or a torrent file and AyniteDM downloads it alongside everything else, shows peers and seeds, and stops sharing when it is done unless you want otherwise.",
+    text: "Open a magnet link or a torrent file and AyniteDM downloads it alongside everything else, shows how many people are sharing it, and stops sharing when it is done unless you want otherwise.",
     img: "screenshots/torrent.png", alt: "Add Download window with a magnet link ready to start",
   },
   {
     title: "Checked when it finishes",
-    text: "Every finished file can be checked with the security scanner of your system and given MD5 and SHA-256 checksums. Files are sorted into folders for videos, music, documents, programs and pictures, and nothing you already have is silently overwritten.",
-    img: "screenshots/complete.png", alt: "Download complete window showing the scan result and checksums",
+    text: "Every finished file can be scanned for viruses with the security software of your system and checked for damage. Files are sorted into folders for videos, music, documents, programs and pictures, and nothing you already have is silently overwritten.",
+    img: "screenshots/complete.png", alt: "Download complete window showing the scan result",
   },
 ];
 
 const FEATURES = [
   "Several connections per file", "Pause and resume, even after a restart", "Automatic resume after connection drops",
-  "Videos from YouTube and 1,800+ sites", "Choose the quality, or audio only (MP3, M4A)", "Live stream recording",
+  `Videos from YouTube and ${SUPPORTED_SITES}`, "Choose the quality, up to 4K, or audio only (MP3, M4A)", "Live stream recording",
   "Download button on every video", "Right-click: Download with AyniteDM", "Takes over browser downloads",
   "Sign-in-required videos via the add-on", "Google Drive, Dropbox and OneDrive links", "Whole pages and playlists at once",
   "Torrents and magnet links", "FTP and SFTP, with saved logins", "Proxy support",
   "Scheduler with shutdown when done", "Speed limits, global and per download", "Duplicate link detection",
-  "Checksums and security scan on completion", "Sorted into category folders", "Clipboard watching: copy a link, it pops up",
+  "Virus scan and damage check on completion", "Sorted into category folders", "Clipboard watching: copy a link, it pops up",
   "Updates itself; video site support updates in seconds", "Windows 10 and 11", "Linux: Ubuntu, Mint, Debian and others",
 ];
 
 const WHATS_NEW = [
   "Linux versions: a package for Ubuntu, Linux Mint and Debian, and an archive for other distributions.",
   "Live broadcasts can be recorded, with a Stop button and live size and time.",
-  "The progress window can be minimised and maximised and has its own taskbar entry.",
-  "AyniteDM checks for new versions on its own and tells you in the tray.",
+  "The program tells you about new versions and installs them silently, in place.",
+  "The browser add-on says when a video is protected instead of staying silent.",
 ];
 
 const FAQ = [
   ["Windows says \"Windows protected your PC\". Is it safe?", "Yes, when the file came from this page. Click \"More info\" and check that the publisher reads AyniteSoft, then click \"Run anyway\". Windows shows that screen for programs it has not seen many times yet."],
+  ["Is AyniteDM an alternative to Internet Download Manager (IDM)?", "Yes. Both speed up downloads with several connections, resume broken downloads and add a button to the browser. AyniteDM also runs on Linux, records live streams, downloads torrents and magnet links, picks video quality up to 4K, and carries no ads. A detailed comparison is on the Compare with IDM page."],
   ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in AyniteDM and choose Check for Updates; the video part of the program updates itself in a few seconds, no reinstall needed."],
   ["Can it download videos that need me to be signed in?", "Yes. Use the Download button that the browser add-on shows on the video while you are signed in to the site, and AyniteDM uses that sign-in."],
   ["Why is there no Download button on Netflix, Prime Video or Disney+?", "Those services encrypt their videos (DRM) and the browser only decrypts them inside a locked player. No download manager can save them, and getting around that protection is against the law in most countries, so AyniteDM does not try. The add-on tells you when a video is protected instead of leaving you guessing."],
   ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, copy the link and AyniteDM pops up on its own, or drag the link onto the AyniteDM window."],
   ["Where do my files go?", "In an AyniteDM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
-  ["Does it run on Linux or Mac?", "Linux, yes: there is a package for Ubuntu, Linux Mint and Debian, and an archive that runs on any other distribution. The browser add-on works the same way there. A Mac version is not available yet."],
+  ["Is there a download manager for Linux too?", "Yes. AyniteDM has a package for Ubuntu, Linux Mint and Debian, and an archive that runs on any other distribution; the browser add-on works the same way there. A Mac version is not available yet. Details are on the Linux page."],
   ["Who makes AyniteDM, and what does it cost?", "AyniteDM is made and supported by AyniteSoft. Current prices and licence options are on aynitesoft.com. There are no ads and no bundled extras in the installer."],
 ];
-
-function useRelease() {
-  const [state, setState] = useState({ loading: true, release: null });
-  useEffect(() => {
-    let alive = true;
-    fetchLatestRelease()
-      .then((release) => alive && setState({ loading: false, release }))
-      .catch(() => alive && setState({ loading: false, release: null }));
-    return () => { alive = false; };
-  }, []);
-  return state;
-}
-
-function Header() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="top">
-      <div className="wrap top-inner">
-        <a className="brand" href="#top"><img src={asset("logo.svg")} alt="" width="34" height="34" /><span>AyniteDM</span></a>
-        <button className="menu-btn" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-          <span /><span /><span />
-        </button>
-        <nav className={open ? "open" : ""} onClick={() => setOpen(false)}>
-          <a href="#top">Home</a>
-          <a href="#features">Features</a>
-          <a href="#download">Download</a>
-          <a href="#extension">Browser add-on</a>
-          <a href="#linux">Linux</a>
-          <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a>
-          <a className="btn solid small" href={BUY_URL} target="_blank" rel="noreferrer">Buy now</a>
-          <a className="btn outline small" href="#download">Download</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function PrimaryDownload({ loading, release, platform }) {
-  if (loading) return <a className="btn solid big" aria-disabled="true">Finding the latest version...</a>;
-  const deb = release?.linux?.deb;
-  const wantLinux = platform === "linux" || (platform === undefined && IS_LINUX_VISITOR);
-  if (wantLinux && deb) {
-    return (
-      <a className="btn solid big" href={deb.url}>
-        Download AyniteDM for Linux
-        <small>Version {release.version} · {humanSize(deb.size)} · Ubuntu, Mint, Debian</small>
-      </a>
-    );
-  }
-  const href = release?.installer?.url || baseDownload(ASSETS.installerFallback);
-  return (
-    <a className="btn solid big" href={href}>
-      Download AyniteDM for Windows
-      <small>{release ? `Version ${release.version} · ${humanSize(release.installer.size)} · ` : ""}Windows 10 and 11</small>
-    </a>
-  );
-}
-
-function LinuxButtons({ release }) {
-  const linux = release?.linux;
-  if (!linux) return null;
-  return (
-    <>
-      {linux.deb && (
-        <a className="btn outline" href={linux.deb.url}>
-          Linux: Ubuntu, Mint, Debian
-          <small>{humanSize(linux.deb.size)} · .deb package</small>
-        </a>
-      )}
-      {linux.tar && (
-        <a className="btn outline" href={linux.tar.url}>
-          Other Linux
-          <small>{humanSize(linux.tar.size)} · archive, any distribution</small>
-        </a>
-      )}
-    </>
-  );
-}
 
 function Hero(props) {
   const { release } = props;
@@ -181,9 +104,11 @@ function Hero(props) {
         <p className="ribbon"><span>By AyniteSoft</span><i /><span>Windows and Linux</span></p>
         <h1>Download faster. Every file, every video.</h1>
         <p className="hero-lead">
-          AyniteDM speeds up downloads with several connections at once, saves videos from YouTube and thousands of
-          other sites in the quality you choose, records live streams, handles torrents, and resumes on its own when
-          the connection drops.
+          <span className="lead-main">AyniteDM is a download manager and video downloader for Windows and Linux.</span>{" "}
+          <span className="lead-more">
+            It speeds up downloads with several connections at once, saves videos from YouTube and {SUPPORTED_SITES} in the
+            quality you choose, records live streams, handles torrents, and resumes on its own when the connection drops.
+          </span>
         </p>
         <div className="hero-cta">
           <PrimaryDownload {...props} />
@@ -191,7 +116,7 @@ function Hero(props) {
         <p className="hero-os">For Windows 10 and 11{release?.linux ? " and Linux (Ubuntu, Mint, Debian and others)" : ""}</p>
         <p className="hero-fine">
           No ads, no bundled extras.{" "}
-          {release?.linux ? <a href="#linux">Also for Linux.</a> : null}{" "}
+          {release?.linux ? <a href={page("linux")}>Also for Linux.</a> : null}{" "}
           <a href={BUY_URL} target="_blank" rel="noreferrer">Buy a licence</a>
         </p>
       </div>
@@ -221,9 +146,10 @@ function FeatureRows() {
             <h2>{row.title}</h2>
             <p>{row.text}</p>
             {row.browsers && <BrowserLinks />}
+            {row.more && <p className="more"><a href={row.more.href}>{row.more.label}</a></p>}
           </div>
           <figure className="row-shot">
-            <img src={asset(row.img)} alt={row.alt} loading={i > 1 ? "lazy" : "eager"} />
+            <Shot src={row.img} alt={row.alt} eager={i === 0} />
           </figure>
         </div>
       ))}
@@ -231,31 +157,6 @@ function FeatureRows() {
         <a className="btn solid" href="#all-features">See all features</a>
         {VIDEO_URL ? <a className="btn outline" href={VIDEO_URL} target="_blank" rel="noreferrer">Watch the video</a> : null}
         <a className="btn outline" href="#guide">How to install</a>
-      </div>
-    </section>
-  );
-}
-
-function DownloadBand(props) {
-  const { release } = props;
-  return (
-    <section id="download" className="band light">
-      <div className="wrap center">
-        <h2>Get AyniteDM</h2>
-        <p className="band-lead">
-          One installer with everything included. Install it, add the browser add-on when asked, and every link you copy
-          or every video you hover is ready to download.
-        </p>
-        <div className="cta-row">
-          <PrimaryDownload {...props} platform="windows" />
-        </div>
-        <div className="cta-row" id="linux">
-          <LinuxButtons release={release} />
-        </div>
-        <p className="for-os">
-          For: Windows 10 and 11{release?.linux ? " · Ubuntu, Linux Mint, Debian · other Linux distributions" : ""}
-        </p>
-        {release?.sha256 && <p className="fine mono">Installer SHA-256: {release.sha256}</p>}
       </div>
     </section>
   );
@@ -279,7 +180,7 @@ function WhatsNew({ release }) {
           </ul>
           {release?.date && (
             <p className="fine light-text">
-              Released {release.date.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}.
+              Released <time dateTime={release.date.toISOString().slice(0, 10)}>{formatDate(release.date)}</time>.
               Installed copies are told about it automatically.
             </p>
           )}
@@ -357,7 +258,7 @@ function Testimonials() {
                 <footer>
                   <strong>{r.name}</strong>
                   {r.where ? <span> · {r.where}</span> : null}
-                  {r.date ? <time dateTime={r.date}> · {new Date(r.date).toLocaleDateString(undefined, { year: "numeric", month: "short" })}</time> : null}
+                  {r.date ? <time dateTime={r.date}> · {formatDate(new Date(r.date), true)}</time> : null}
                 </footer>
               </li>
             ))}
@@ -431,8 +332,13 @@ function Extension() {
                 <ol>
                   <li>Open Firefox's Add-ons and themes page from the menu.</li>
                   <li>Click the gear icon, choose Install Add-on From File, and pick the downloaded file.</li>
-                  <li>Firefox only installs add-ons it has approved. Until AyniteDM is listed there, use Firefox Developer Edition or Firefox ESR, which can install it after you allow unsigned add-ons in their settings.</li>
                 </ol>
+                <details>
+                  <summary>Firefox says the add-on could not be verified</summary>
+                  <p>Regular Firefox installs add-ons only from Firefox's own add-on site. Until AyniteDM is listed there, the
+                    Developer Edition and ESR editions of Firefox can install it after you switch on unverified add-ons in
+                    their settings.</p>
+                </details>
               </>
             )}
           </article>
@@ -446,10 +352,10 @@ function Guide({ release }) {
   const size = release?.installer?.size ? humanSize(release.installer.size) : "75 MB";
   const steps = [
     ["Download the installer", `Click Download for Windows above. One file, about ${size}, with everything included. On Linux, take the package for your distribution instead.`],
-    ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. On Linux, double-click the .deb package, or extract the archive and run install.sh from the folder it creates."],
+    ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. On Linux, double-click the package to install it, or unpack the archive and run the Install script inside the folder it creates."],
     ["Add the browser add-on", "When AyniteDM starts for the first time it lists your browsers and sets the add-on up with a click. This is what makes the Download button appear on videos."],
     ["Download something", "Copy any link and AyniteDM opens by itself, ready to go. Or hover a video in your browser and click Download this video. Finished files land in the AyniteDM folder inside Downloads."],
-    ["Keep it up to date", "AyniteDM tells you when a new version is out and installs it from the Tools menu. The video part updates the same way, more often, in seconds."],
+    ["Keep it up to date", "AyniteDM tells you when a new version is out and installs it from the Tools menu, silently and in place. The video part updates the same way, more often, in seconds."],
   ];
   return (
     <section id="guide" className="plain">
@@ -478,28 +384,11 @@ function Faq() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="footer">
-      <div className="wrap footer-inner">
-        <p className="brand-line"><img src={asset("logo.svg")} alt="" width="22" height="22" /> AyniteDM is a product of{" "}
-          <a href="https://aynitesoft.com" target="_blank" rel="noreferrer">AyniteSoft</a>. © {new Date().getFullYear()} AyniteSoft. All rights reserved.</p>
-        <p className="footer-links">
-          <a href={asset("privacy.html")}>Privacy policy</a>
-          <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a>
-          <a href={BUY_URL} target="_blank" rel="noreferrer">Buy now</a>
-        </p>
-        {!DOWNLOAD_BASE && <p className="warn">Site owner: set VITE_DOWNLOAD_BASE to the folder that holds update.json and the installer.</p>}
-      </div>
-    </footer>
-  );
-}
-
 export default function App() {
   const state = useRelease();
   return (
     <>
-      <Header />
+      <Header current="home" />
       <main>
         <Hero {...state} />
         <FeatureRows />

@@ -1,8 +1,22 @@
 {
-  "version": "1.3.0",
-  "url": "AyniteDM-Setup-1.3.0.exe",
-  "sha256": "9c1f6ba23d34a8c6850d7c6416ff4d0f67a3656ef7b625afcae6e7eaeecce7c8",
-  "size": 113006944,
-  "date": "2026-10-08",
-  "notes": "AyniteDM 1.3.0"
+  "version": "1.3.11",
+  "url": "AyniteDM-Setup-1.3.11.exe",
+  "sha256": "fa522c782c57dc4bbd96c291e4bfb0e67c4f3c33c05f5da62b57b1ce4b4d7aa0",
+  "size": 79117059,
+  "date": "2026-10-12",
+  "notes": "AyniteDM 1.3.11",
+  "linux": {
+    "tar": {
+      "url": "aynitedm-1.3.11-linux-x86_64.tar.gz",
+      "sha256": "daecdf5378a72b6c829772a2bde16ea91c99b87666e79b263fb64ebd8826d0f0",
+      "size": 171464979,
+      "arch": "x86_64"
+    },
+    "deb": {
+      "url": "aynitedm_1.3.11_amd64.deb",
+      "sha256": "f78e83e82331cad81c9d854d21da99ebe88721e5607cb9e91e22877522af94c5",
+      "size": 137125144,
+      "arch": "x86_64"
+    }
+  }
 }
