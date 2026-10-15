@@ -1,26 +1,28 @@
 import { SUPPORTED_SITES, humanSize } from "../release.js";
-import { Crumbs, Footer, Header, LinuxButtons, PrimaryDownload, Shot, page, useRelease } from "../shared.jsx";
+import { Crumbs, Footer, Header, Inline, LinuxButtons, PrimaryDownload, Shot, page, useRelease } from "../shared.jsx";
 
 const STEPS_DEB = [
   ["Download the package", "Click the Ubuntu, Mint, Debian button. You get one .deb file with everything inside, including the video tool."],
-  ["Open it", "Double-click the file. Your software installer (Ubuntu Software, GDebi, Discover or similar) shows AyniteDM and asks for your password once. Linux Mint and Debian work the same way."],
-  ["Start AyniteDM", "Find it in your application menu under Internet. The first start offers to set up the browser add-on and asks whether AyniteDM should start with your session."],
+  ["Open it", "Double-click the file. Your software installer (Ubuntu Software, GDebi, Discover or similar) shows ADM and asks for your password once. Linux Mint and Debian work the same way."],
+  ["Start ADM", "Find it in your application menu under Internet. The first start offers to set up the browser add-on and asks whether ADM should start with your session."],
 ];
 
 const STEPS_TAR = [
   ["Download the archive", "Click Other Linux. The archive works on Fedora, openSUSE, Arch, Manjaro and any other current distribution from 2022 onwards."],
-  ["Unpack it", "Extract it anywhere you like, for example in your home folder. A folder named aynitedm appears."],
-  ["Run the Install script, or run AyniteDM directly", "Double-click Install inside the folder to add AyniteDM to your application menu and your user's programs, no administrator rights needed. Or just start the aynitedm program in the folder."],
+  ["Unpack it", "Extract it anywhere you like, for example in your home folder. A folder named adm appears."],
+  ["Run the Install script, or run ADM directly", "Double-click Install inside the folder to add ADM to your application menu and your user's programs, no administrator rights needed. Or just start the adm program in the folder."],
 ];
 
 const FAQ = [
+  ["Does Aynite Download Manager run on Linux?", "Yes. Aynite Download Manager (ADM) runs on Ubuntu 22.04+, Linux Mint 21+ and Debian 12+ from a .deb, and on Fedora, openSUSE, Arch, Manjaro and other distributions from 2022 onwards from an archive that needs no root, with the same browser add-on, torrents and 4K video as on Windows."],
+  ["Is there an IDM for Linux?", "No. Internet Download Manager runs only on Windows. Aynite Download Manager does the same job natively on Ubuntu, Linux Mint, Debian and other distributions, browser button included."],
   ["Which distributions are supported?", "The package is for Ubuntu 22.04 and newer, Linux Mint 21 and newer, Debian 12 and newer and their relatives. The archive runs on any distribution from 2022 onwards, including Fedora, openSUSE, Arch and Manjaro."],
-  ["Where do my downloads go on Linux?", "In an AyniteDM folder inside your Downloads folder, sorted into Videos, Music, Documents, Programs, Compressed and Images. You can choose another place in Options."],
-  ["Does the browser add-on work on Linux?", "Yes, exactly as on Windows: Chrome, Chromium, Edge, Brave and Firefox, including versions installed from Flatpak. AyniteDM detects the browsers you have and opens the right page for each."],
-  ["Do torrents work on Linux?", "Yes. The package brings in the torrent engine automatically. With the archive, install the aria2 package from your distribution's software centre once, and torrents and magnet links work from then on."],
-  ["Do I get updates on Linux?", "Yes. AyniteDM tells you when a new version is out and downloads the right package for your installation. The video-site support updates itself in seconds, the same as on Windows."],
+  ["Where do my downloads go on Linux?", "In an ADM folder inside your Downloads folder, sorted into Videos, Music, Documents, Programs, Compressed and Images. You can choose another place in Options."],
+  ["Does the browser add-on work on Linux?", "Chrome, Chromium, Edge and Brave: yes, exactly as on Windows, including Flatpak and Snap builds; ADM detects the browsers you have and opens the right page for each. Firefox: the Developer Edition and ESR editions (including the firefox-esr that Debian ships) install the add-on today after you allow unsigned add-ons; regular Firefox, including Ubuntu's Snap and the Flathub build, accepts it once Mozilla has signed it."],
+  ["Do torrents work on Linux?", "Yes. The package recommends the aria2 torrent engine, which apt installs with it; if ADM reports the engine missing, run sudo apt install aria2. With the archive, install aria2 from your distribution once, and torrents and magnet links work like any other download."],
+  ["Do I get updates on Linux?", "Yes. ADM tells you when a new version is out and downloads the right package for your installation. The video-site support updates itself in seconds, the same as on Windows."],
   ["Does it work on Wayland and on KDE, GNOME, XFCE, Cinnamon?", "Yes. It is a regular desktop program and uses whatever your desktop provides. The tray icon appears on desktops that show tray icons; on GNOME that needs the AppIndicator extension, which most distributions already include."],
-  ["Is there a Mac version?", "Not yet."],
+  ["Is there a Mac version?", "No. Aynite Download Manager runs on Windows 10, 11 and Linux; there is no macOS version yet."],
 ];
 
 export default function LinuxPage() {
@@ -29,13 +31,14 @@ export default function LinuxPage() {
   return (
     <>
       <Header current="linux" />
-      <main>
+      <main id="main">
         <section className="page-hero">
           <div className="wrap">
             <Crumbs items={["Linux"]} />
-            <h1>AyniteDM for Linux: a download manager for Ubuntu, Mint, Debian and more</h1>
+            <h1>Aynite Download Manager for Linux: a download manager for Ubuntu, Linux Mint, Debian and more</h1>
             <p className="lead">
-              The same program as on Windows, not a cut-down version: several connections per file, pause and resume,
+              Yes, Aynite Download Manager (ADM) runs natively on Linux: the same program as on Windows, not a cut-down
+              version. Several connections per file, pause and resume,
               videos from YouTube and {SUPPORTED_SITES} with a quality picker up to 4K, live stream recording, torrents, a
               scheduler and the browser add-on that puts a Download button on every video.
             </p>
@@ -68,7 +71,7 @@ export default function LinuxPage() {
               <p>Both are about the same size and contain the same program.</p>
             </div>
             <figure className="row-shot">
-              <Shot src="screenshots/main.png" alt="AyniteDM main window with a list of downloads" eager />
+              <Shot src="screenshots/main.png" alt="ADM main window with a list of downloads" eager />
             </figure>
           </div>
         </section>
@@ -95,15 +98,15 @@ export default function LinuxPage() {
             <div className="row-text">
               <h2>The browser add-on on Linux</h2>
               <p>
-                Open AyniteDM, choose Tools, then Install Browser Add-on. It lists the browsers it found, Chrome,
+                Open ADM, choose Tools, then Install Browser Add-on. It lists the browsers it found, Chrome,
                 Chromium, Edge, Brave or Firefox, including Flatpak versions, and opens the right page in each one. After
                 that, every video you hover shows the Download button with its quality list, right-click menus gain
-                "Download with AyniteDM", and the add-on can take over normal browser downloads.
+                "Download with ADM", and the add-on can take over normal browser downloads.
               </p>
               <p><a href={page("youtube")}>How to save a YouTube video in 4K or as MP3</a></p>
             </div>
             <figure className="row-shot">
-              <Shot src="screenshots/addon.png" alt="AyniteDM's add-on window listing installed browsers" />
+              <Shot src="screenshots/addon.png" alt="ADM's add-on window listing installed browsers" />
             </figure>
           </div>
         </section>
@@ -111,7 +114,7 @@ export default function LinuxPage() {
         <section className="band light">
           <div className="wrap narrow">
             <h2 className="center">Questions about Linux</h2>
-            {FAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
+            {FAQ.map(([q, a]) => <details key={q}><summary>{q}</summary><p><Inline text={a} /></p></details>)}
             <div className="cta-row">
               <LinuxButtons release={state.release} />
             </div>

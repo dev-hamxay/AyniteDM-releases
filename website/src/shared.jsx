@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BY_KEY, SECTIONS } from "./pages/registry.js";
 import {
   ASSETS, BUILT_RELEASE, BUY_URL, DOWNLOAD_BASE, IS_LINUX_VISITOR, SUPPORT_URL, asset, baseDownload,
   fetchLatestRelease, humanSize,
@@ -25,10 +26,10 @@ export function Shot({ src, alt, eager = false, className }) {
     <picture>
       <source
         type="image/webp"
-        srcSet={`${asset(base + "-800.webp")} 800w, ${asset(base + "-1400.webp")} 1400w, ${asset(base + ".webp")} ${w}w`}
-        sizes="(max-width: 900px) 92vw, 760px"
+        srcSet={`${asset(base + "-500.webp")} 500w, ${asset(base + "-800.webp")} 800w, ${asset(base + "-1400.webp")} 1400w, ${asset(base + ".webp")} ${w}w`}
+        sizes="(max-width: 900px) 92vw, (max-width: 1360px) 50vw, 700px"
       />
-      <img src={asset(src)} alt={alt} width={w} height={h} loading={eager ? "eager" : "lazy"}
+      <img src={asset(base + "-1400.webp")} alt={alt} width={w} height={h} loading={eager ? "eager" : "lazy"}
         fetchPriority={eager ? "high" : "auto"} decoding="async" className={className} />
     </picture>
   );
@@ -54,30 +55,59 @@ export function useRelease() {
   return state;
 }
 
-export const PAGES = {
-  home: { path: "", label: "Home" },
-  idm: { path: "idm-alternative/", label: "Compare with IDM" },
-  linux: { path: "linux/", label: "Linux" },
-  youtube: { path: "youtube-4k-downloader/", label: "YouTube guide" },
-};
-export const page = (key, hash = "") => asset(PAGES[key].path) + hash;
+/** Address of a page by its registry key, e.g. page("windows") or page("home", "#download"). */
+export const page = (key, hash = "") => asset(BY_KEY[key].path) + hash;
+
+const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+/** Text with links written as [label](key:windows), [label](key:home#download), [label](https://...) or
+ *  [label](#id). Everything else is rendered as plain text. */
+export function Inline({ text }) {
+  if (!text || !text.includes("](")) return text || null;
+  const out = [];
+  let last = 0;
+  let m;
+  LINK_RE.lastIndex = 0;
+  while ((m = LINK_RE.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const target = m[2];
+    let href = target;
+    let external = false;
+    if (target.startsWith("key:")) {
+      const [key, hash] = target.slice(4).split("#");
+      href = page(key, hash ? `#${hash}` : "");
+    } else if (target.startsWith("asset:")) {
+      href = asset(target.slice(6));
+    } else if (/^https?:/i.test(target)) {
+      external = true;
+    }
+    out.push(external
+      ? <a key={m.index} href={href} target="_blank" rel="noreferrer">{m[1]}</a>
+      : <a key={m.index} href={href}>{m[1]}</a>);
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
 
 export function Header({ current = "home" }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="top">
+      <a className="skip" href="#main">Skip to main content</a>
       <div className="wrap top-inner">
-        <a className="brand" href={page("home")}><img src={asset("logo.svg")} alt="" width="34" height="34" /><span>AyniteDM</span></a>
+        <a className="brand" href={page("home")}><img src={asset("logo.svg")} alt="" width="34" height="34" /><span>ADM<small className="brand-full">Aynite Download Manager</small></span></a>
         <button className="menu-btn" aria-label="Menu" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>
           <span /><span /><span />
         </button>
-        <nav id="site-nav" className={open ? "open" : ""} onClick={() => setOpen(false)}>
+        <nav id="site-nav" aria-label="Main" className={open ? "open" : ""} onClick={() => setOpen(false)}>
           <a href={page("home")} aria-current={current === "home" ? "page" : undefined}>Home</a>
           <a href={page("home", "#features")}>Features</a>
           <a href={page("home", "#download")}>Download</a>
-          <a href={page("home", "#extension")}>Browser add-on</a>
+          <a href={page("extension")} aria-current={current === "extension" ? "page" : undefined}>Browser add-on</a>
           <a href={page("linux")} aria-current={current === "linux" ? "page" : undefined}>Linux</a>
           <a href={page("idm")} aria-current={current === "idm" ? "page" : undefined}>Compare with IDM</a>
+          <a href={page("help")} aria-current={current === "help" ? "page" : undefined}>Help</a>
           <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a>
           <a className="btn solid small" href={BUY_URL} target="_blank" rel="noreferrer">Buy now</a>
           <a className="btn outline small" href={page("home", "#download")}>Download</a>
@@ -89,13 +119,13 @@ export function Header({ current = "home" }) {
 
 export function PrimaryDownload({ loading, release, platform }) {
   const linuxVisitor = useIsLinuxVisitor();
-  if (loading) return <a className="btn solid big" aria-disabled="true">Finding the latest version...</a>;
+  if (loading) return <a className="btn solid big" aria-disabled="true" href={baseDownload(ASSETS.installerFallback)}>Finding the latest version...</a>;
   const deb = release?.linux?.deb;
   const wantLinux = platform === "linux" || (platform === undefined && linuxVisitor);
   if (wantLinux && deb) {
     return (
       <a className="btn solid big" href={deb.url}>
-        Download AyniteDM for Linux
+        Download ADM for Linux
         <small>Version {release.version} · {humanSize(deb.size)} · Ubuntu, Mint, Debian</small>
       </a>
     );
@@ -103,7 +133,7 @@ export function PrimaryDownload({ loading, release, platform }) {
   const href = release?.installer?.url || baseDownload(ASSETS.installerFallback);
   return (
     <a className="btn solid big" href={href}>
-      Download AyniteDM for Windows
+      Download ADM for Windows
       <small>{release ? `Version ${release.version} · ${humanSize(release.installer.size)}` : "Windows 10 and 11"}</small>
     </a>
   );
@@ -135,7 +165,7 @@ export function DownloadBand(props) {
   return (
     <section id="download" className="band light">
       <div className="wrap center">
-        <h2>Get AyniteDM</h2>
+        <h2>Get ADM</h2>
         <p className="band-lead">
           One installer with everything included. Install it, add the browser add-on when asked, and every link you copy
           or every video you hover is ready to download.
@@ -165,7 +195,7 @@ export function Crumbs({ items }) {
   return (
     <nav className="crumbs" aria-label="Breadcrumb">
       <ol>
-        <li><a href={page("home")}>AyniteDM</a></li>
+        <li><a href={page("home")}>Home</a></li>
         {items.map((it, i) => (
           <li key={i} aria-current={i === items.length - 1 ? "page" : undefined}>{it}</li>
         ))}
@@ -179,23 +209,26 @@ const BUILD_YEAR = new Date().getFullYear();
 export function Footer() {
   return (
     <footer className="footer">
+      <div className="wrap">
+        <nav className="footer-groups" aria-label="Site map">
+          {SECTIONS.map(([id, label, keys]) => (
+            <div key={id}>
+              <h3>{label}</h3>
+              {keys.map((k) => <a key={k} href={page(k)}>{BY_KEY[k].name}</a>)}
+            </div>
+          ))}
+        </nav>
+      </div>
       <div className="wrap footer-inner">
-        <p className="brand-line"><img src={asset("logo.svg")} alt="" width="22" height="22" /> AyniteDM is a product of{" "}
+        <p className="brand-line"><img src={asset("logo.svg")} alt="" width="22" height="22" /> Aynite Download Manager (ADM) is a product of{" "}
           <a href="https://aynitesoft.com" target="_blank" rel="noreferrer">AyniteSoft</a>. © {BUILD_YEAR} AyniteSoft. All rights reserved.</p>
         <p className="footer-links">
-          <a href={page("idm")}>Compare with IDM</a>
-          <a href={page("linux")}>Linux</a>
-          <a href={page("youtube")}>YouTube guide</a>
           <a href={asset("privacy.html")}>Privacy policy</a>
+          <a href={page("whatsnew")}>What's new</a>
           <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Support</a>
           <a href={BUY_URL} target="_blank" rel="noreferrer">Buy now</a>
         </p>
       </div>
-      <p className="wrap legal">
-        Internet Download Manager and IDM are trademarks of Tonec FZE. AyniteSoft is not affiliated with Tonec. YouTube is a
-        trademark of Google LLC. Only download content you have the right to save, and respect each site's terms.
-        {!DOWNLOAD_BASE && <span className="warn"> Site owner: set VITE_DOWNLOAD_BASE to the folder that holds update.json and the installer.</span>}
-      </p>
     </footer>
   );
 }

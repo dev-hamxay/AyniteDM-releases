@@ -5,9 +5,9 @@
   --border: #dde3ea;
   --text: #1b2430;
   --muted: #5b6673;
-  --link: #1b7fb8;
+  --link: #166b9c;
   --green: #1aa36a;
-  --green-dark: #148a58;
+  --green-dark: #0f6b45;
   --navy: #0b1b3a;
   --navy-2: #14306a;
   --shadow: 0 8px 24px rgba(16, 32, 64, 0.12);
@@ -287,9 +287,11 @@ details p { margin: 10px 0 0; color: var(--muted); }
 /* ---------------------------------------------------------------- audit follow-ups: hero, images, sub-pages */
 .hero-lead { font-weight: 400; color: #e6ecf8; }
 .hero-fine a { display: inline-block; padding: 0.4em 0.2em; }
-.btn.solid { background: #168a57; box-shadow: 0 6px 18px rgba(22, 138, 87, 0.3); }
-.btn.solid:hover { background: #11704a; }
-.btn.outline { color: #168a57; border-color: #168a57; }
+/* button colours pass the 4.5:1 contrast check for white or green text at the button's size */
+.btn.solid { background: #0f6b45; box-shadow: 0 6px 18px rgba(15, 107, 69, 0.3); }
+.btn.solid:hover { background: #0b5435; }
+.btn.outline { color: #0f6b45; border-color: #0f6b45; }
+.btn small { opacity: 1; }
 .row-shot picture { display: block; }
 .row-text .more { margin-top: 0.4em; }
 .row-text .more a { font-weight: 600; }
@@ -323,3 +325,27 @@ details p { margin: 10px 0 0; color: var(--muted); }
   .btn.big { font-size: 0.92rem; padding: 14px 18px; letter-spacing: 0.02em; }
   .page-hero h1 { font-size: 1.45rem; }
 }
+
+/* the full product name next to the short one in the header; the short one alone on narrow screens */
+.brand small.brand-full { margin-left: 10px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; opacity: .85; }
+@media (max-width: 760px) { .brand small.brand-full { display: none; } }
+
+/* ---------------------------------------------------------------- content pages (src/content), footer groups */
+.prose h2 { margin-top: 0.2em; }
+.prose h2 + p, .prose h2 + ul, .prose h2 + ol { margin-top: 0; }
+.prose p, .prose li { color: var(--text); }
+.prose .row-text p { color: var(--muted); }
+.prose ul { padding-left: 1.2em; }
+.prose .note { border-left: 3px solid var(--green); background: var(--bg-soft); padding: 10px 16px; color: var(--muted); border-radius: 0 var(--radius) var(--radius) 0; }
+.prose .steps.compact { margin-bottom: 8px; }
+.footer-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px 28px; padding: 4px 0 26px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.footer-groups h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 0.5em; font-weight: 600; }
+.footer-groups a { display: block; color: var(--text); padding: 3px 0; font-size: 0.9rem; }
+.read-more { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 28px; }
+.read-more a { font-weight: 600; }
+.read-more span { display: block; color: var(--muted); font-size: 0.92rem; }
+
+/* keyboard and agent helpers: a skip link, and inline links told apart by more than colour */
+.skip { position: absolute; left: -999px; top: 8px; z-index: 30; background: var(--panel); color: var(--text); padding: 8px 14px; border-radius: 6px; border: 1px solid var(--border); }
+.skip:focus { left: 8px; }
+main p a, main li a, main td a, main summary a { text-decoration: underline; text-underline-offset: 2px; }

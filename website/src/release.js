@@ -1,6 +1,6 @@
 // Downloads come from your own download folder, not from GitHub. The folder holds the files that
 // build/build.py writes: update.json (version, installer name, size, SHA-256), the installer, and the two
-// add-on packages. Set VITE_DOWNLOAD_BASE to that folder's address, e.g. https://aynitesoft.com/aynitedm/files/
+// add-on packages. Set VITE_DOWNLOAD_BASE to that folder's address, e.g. https://aynitesoft.com/adm/files/
 // The add-on packages are also served by this site itself (public/downloads), so they work without it.
 import manifest from "../public/downloads/update.json";   // refreshed by the release pipeline before every build
 
@@ -16,10 +16,10 @@ export const VIDEO_URL = import.meta.env.VITE_VIDEO_URL || "";   // the YouTube 
 export const VERSION_FALLBACK = String(manifest.version || "");  // the version known at build time
 
 export const ASSETS = {
-  chromeZip: "aynitedm-chrome-extension.zip",
-  firefoxXpi: "aynitedm-firefox.xpi",
+  chromeZip: "adm-chrome-extension.zip",
+  firefoxXpi: "adm-firefox.xpi",
   manifest: "update.json",
-  installerFallback: String(manifest.url || "AyniteDM-Setup.exe"),
+  installerFallback: String(manifest.url || "ADM-Setup.exe"),
 };
 
 // BASE_URL is "/" normally and "/<repo>/" on a GitHub Pages project site.

@@ -3,14 +3,15 @@ import {
   ASSETS, BUY_URL, CHROME_STORE_URL, FEEDBACK_URL, FIREFOX_ADDON_URL, SUPPORTED_SITES, VERSION_FALLBACK, VIDEO_URL,
   asset, fetchJsonList, formatDate, humanSize, siteDownload,
 } from "./release.js";
-import { DownloadBand, Footer, Header, PrimaryDownload, Shot, page, useRelease } from "./shared.jsx";
+import { DownloadBand, Footer, Header, Inline, PrimaryDownload, Shot, page, useRelease } from "./shared.jsx";
+import { BY_KEY } from "./pages/registry.js";
 
 // True statements shown as badges next to the ratings, so the section is never empty or invented.
 const TRUST = [
-  ["No ads, no bundled extras", "The installer contains AyniteDM and nothing else."],
+  ["No ads, no bundled extras", "The installer contains ADM and nothing else."],
   ["Every download can be verified", "The installer's fingerprint is published here, and the built-in updater checks it before installing."],
   ["Your files stay yours", "Nothing about your downloads leaves your computer."],
-  ["Updates itself", "New versions and video-site fixes arrive on their own."],
+  ["Updates itself", "New versions install in place with one click; video-site fixes install in seconds."],
   ["Windows and Linux", "Windows 10 and 11, Ubuntu, Linux Mint, Debian and others."],
   ["Made by AyniteSoft", "Built and supported by one company, with a privacy policy you can read."],
 ];
@@ -19,8 +20,8 @@ const TRUST = [
 const ROWS = [
   {
     title: "Download faster and more reliably",
-    text: "AyniteDM fetches several parts of a file at the same time, so big downloads usually arrive much faster than in a browser. Pause a download and continue it later, even after a restart. If the connection drops, AyniteDM waits for the server and picks up where it left off on its own.",
-    img: "screenshots/main.png", alt: "AyniteDM main window with a list of downloads, progress bars and speeds",
+    text: "ADM fetches several parts of a file at the same time, so big downloads usually arrive much faster than in a browser. Pause a download and continue it later, even after a restart. If the connection drops, ADM waits for the server and picks up where it left off on its own.",
+    img: "screenshots/main.png", alt: "ADM main window with a list of downloads, progress bars and speeds",
   },
   {
     title: "Watch every connection at work",
@@ -30,7 +31,7 @@ const ROWS = [
   {
     title: "A Download button on every video",
     text: `With the browser add-on, a small Download button appears on any video you hover, on YouTube and ${SUPPORTED_SITES}. Pick the quality you want, up to 4K where the site offers it, or keep just the sound as MP3, and the video is saved to your computer.`,
-    img: "screenshots/youtube-button.jpg", alt: "The AyniteDM Download button over a YouTube video with a list of qualities",
+    img: "screenshots/youtube-button.jpg", alt: "The ADM Download button over a YouTube video with a list of qualities",
     more: { href: page("youtube"), label: "How to save a YouTube video in 4K or as MP3" },
   },
   {
@@ -40,8 +41,8 @@ const ROWS = [
   },
   {
     title: "All popular browsers are supported",
-    text: "The add-on works in Google Chrome, Microsoft Edge, Brave and Firefox. It adds Download with AyniteDM to the right-click menu and can take over the browser's normal downloads so they finish faster.",
-    img: "screenshots/addon.png", alt: "The window in AyniteDM that sets up the add-on for each installed browser",
+    text: "The add-on works in Google Chrome, Microsoft Edge, Brave and Firefox. It adds Download with ADM to the right-click menu and can take over the browser's normal downloads so they finish faster.",
+    img: "screenshots/addon.png", alt: "The window in ADM that sets up the add-on for each installed browser",
     browsers: true,
   },
   {
@@ -51,12 +52,12 @@ const ROWS = [
   },
   {
     title: "Download on a schedule",
-    text: "Start the queue at night when the line is free and stop it in the morning, on the days you choose. When everything has finished, AyniteDM can shut the computer down or put it to sleep.",
+    text: "Start the queue at night when the line is free and stop it in the morning, on the days you choose. When everything has finished, ADM can shut the computer down or put it to sleep.",
     img: "screenshots/scheduler.png", alt: "Scheduler window with start and stop times and days of the week",
   },
   {
     title: "Torrents and magnet links too",
-    text: "Open a magnet link or a torrent file and AyniteDM downloads it alongside everything else, shows how many people are sharing it, and stops sharing when it is done unless you want otherwise.",
+    text: "Open a magnet link or a torrent file and ADM downloads it alongside everything else, shows how many people are sharing it, and stops sharing when it is done unless you want otherwise.",
     img: "screenshots/torrent.png", alt: "Add Download window with a magnet link ready to start",
   },
   {
@@ -69,7 +70,7 @@ const ROWS = [
 const FEATURES = [
   "Several connections per file", "Pause and resume, even after a restart", "Automatic resume after connection drops",
   `Videos from YouTube and ${SUPPORTED_SITES}`, "Choose the quality, up to 4K, or audio only (MP3, M4A)", "Live stream recording",
-  "Download button on every video", "Right-click: Download with AyniteDM", "Takes over browser downloads",
+  "Download button on every video", "Right-click: Download with ADM", "Takes over browser downloads",
   "Sign-in-required videos via the add-on", "Google Drive, Dropbox and OneDrive links", "Whole pages and playlists at once",
   "Torrents and magnet links", "FTP and SFTP, with saved logins", "Proxy support",
   "Scheduler with shutdown when done", "Speed limits, global and per download", "Duplicate link detection",
@@ -85,15 +86,17 @@ const WHATS_NEW = [
 ];
 
 const FAQ = [
-  ["Windows says \"Windows protected your PC\". Is it safe?", "Yes, when the file came from this page. Click \"More info\" and check that the publisher reads AyniteSoft, then click \"Run anyway\". Windows shows that screen for programs it has not seen many times yet."],
-  ["Is AyniteDM an alternative to Internet Download Manager (IDM)?", "Yes. Both speed up downloads with several connections, resume broken downloads and add a button to the browser. AyniteDM also runs on Linux, records live streams, downloads torrents and magnet links, picks video quality up to 4K, and carries no ads. A detailed comparison is on the Compare with IDM page."],
-  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in AyniteDM and choose Check for Updates; the video part of the program updates itself in a few seconds, no reinstall needed."],
-  ["Can it download videos that need me to be signed in?", "Yes. Use the Download button that the browser add-on shows on the video while you are signed in to the site, and AyniteDM uses that sign-in."],
-  ["Why is there no Download button on Netflix, Prime Video or Disney+?", "Those services encrypt their videos (DRM) and the browser only decrypts them inside a locked player. No download manager can save them, and getting around that protection is against the law in most countries, so AyniteDM does not try. The add-on tells you when a video is protected instead of leaving you guessing."],
-  ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, copy the link and AyniteDM pops up on its own, or drag the link onto the AyniteDM window."],
-  ["Where do my files go?", "In an AyniteDM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
-  ["Is there a download manager for Linux too?", "Yes. AyniteDM has a package for Ubuntu, Linux Mint and Debian, and an archive that runs on any other distribution; the browser add-on works the same way there. A Mac version is not available yet. Details are on the Linux page."],
-  ["Who makes AyniteDM, and what does it cost?", "AyniteDM is made and supported by AyniteSoft. Current prices and licence options are on aynitesoft.com. There are no ads and no bundled extras in the installer."],
+  ["Windows says \"Windows protected your PC\". Is it safe?", "Yes, when the file came from this page. Windows shows that screen for new programs that are not yet signed with a certificate it recognises, so the publisher reads Unknown publisher for now. Compare the file's SHA-256 with the one under Verify this file, then click More info and Run anyway. [What the notice means](key:helpSmartscreen)."],
+  ["Is Aynite Download Manager an alternative to IDM?", "Yes. Aynite Download Manager (ADM) and Internet Download Manager (IDM) both speed up downloads with several connections, resume broken downloads and add a Download button to the browser. ADM also runs on Linux, records live streams, downloads torrents and magnet links, and lists video qualities up to 4K. [Feature by feature](key:idm), or see the round-up of [IDM alternatives](key:alternatives)."],
+  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in ADM and choose Check for Updates; the video part of the program updates itself in a few seconds, no reinstall needed. [Step by step](key:helpYoutube)."],
+  ["Can it download videos that need me to be signed in?", "Yes. Use the Download button that the browser add-on shows on the video while you are signed in to the site, and ADM uses that sign-in."],
+  ["Why is there no Download button on Netflix, Prime Video or Disney+?", "Those services encrypt their videos (DRM) and the browser only decrypts them inside a locked player. No download manager can save them, and getting around that protection is against the law in most countries, so ADM does not try. The add-on tells you when a video is protected instead of leaving you guessing."],
+  ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, press Alt+Shift+D and paste the link, drag it onto the ADM window, or turn on the clipboard watch in Options so that a copied link opens ADM by itself."],
+  ["Where do my files go?", "In an ADM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
+  ["Does Aynite Download Manager run on Linux?", "Yes. Aynite Download Manager (ADM) runs natively on Linux: a .deb for Ubuntu 22.04+, Linux Mint 21+ and Debian 12+, and an archive for Fedora, openSUSE, Arch and other distributions. The browser add-on works as on Windows. There is no macOS version yet. [ADM for Linux](key:linux), with pages for [Ubuntu](key:ubuntu), [Linux Mint](key:mint), [Debian](key:debian) and [Fedora and Arch](key:fedora)."],
+  ["Is Aynite Download Manager free?", "No. Aynite Download Manager (ADM) is paid software from AyniteSoft, sold with a licence. There are no ads and no bundled extras in the installer. Prices and licence options are on [aynitesoft.com](https://aynitesoft.com)."],
+  ["Does Aynite Download Manager download torrents?", "Yes. Aynite Download Manager (ADM) opens magnet links and .torrent files and downloads them in the same queue as other downloads, on Windows and Linux; sharing stops when the download finishes unless you choose otherwise. [More on torrents](key:torrent)."],
+  ["Is ADM the Android app Advanced Download Manager?", "No. Aynite Download Manager (ADM) is a desktop program for Windows and Linux by AyniteSoft. Advanced Download Manager is an unrelated Android app from another developer. [More about the name](key:adm)."],
 ];
 
 function Hero(props) {
@@ -102,9 +105,9 @@ function Hero(props) {
     <section className="hero" id="top">
       <div className="wrap hero-inner">
         <p className="ribbon"><span>By AyniteSoft</span><i /><span>Windows and Linux</span></p>
-        <h1>Download faster. Every file, every video.</h1>
+        <h1>Download faster. Save any video. Windows and Linux.</h1>
         <p className="hero-lead">
-          <span className="lead-main">AyniteDM is a download manager and video downloader for Windows and Linux.</span>{" "}
+          <span className="lead-main">Aynite Download Manager (ADM) is a download manager and video downloader for Windows and Linux, made by AyniteSoft.</span>{" "}
           <span className="lead-more">
             It speeds up downloads with several connections at once, saves videos from YouTube and {SUPPORTED_SITES} in the
             quality you choose, records live streams, handles torrents, and resumes on its own when the connection drops.
@@ -169,12 +172,12 @@ function WhatsNew({ release }) {
       <div className="wrap whatsnew">
         <div className="box-art" aria-hidden="true">
           <img src={asset("logo.svg")} alt="" width="120" height="120" />
-          <strong>AyniteDM</strong>
+          <strong>ADM</strong>
           <span>{version}</span>
         </div>
         <div>
           <p className="tag">New version</p>
-          <h2>AyniteDM {version}</h2>
+          <h2>ADM {version}</h2>
           <ul>
             {WHATS_NEW.map((line) => <li key={line}>{line}</li>)}
           </ul>
@@ -265,7 +268,7 @@ function Testimonials() {
           </ul>
         ) : (
           <p className="band-lead center">
-            AyniteDM is new, and only real words from real users go here. Using it? Tell us what works and what should
+            ADM is new, and only real words from real users go here. Using it? Tell us what works and what should
             be better, and with your permission your review appears on this page.
           </p>
         )}
@@ -281,7 +284,7 @@ function AllFeatures() {
   return (
     <section id="all-features" className="plain">
       <div className="wrap">
-        <h2 className="center">Everything AyniteDM does</h2>
+        <h2 className="center">Everything ADM does</h2>
         <ul className="checklist">
           {FEATURES.map((f) => <li key={f}>{f}</li>)}
         </ul>
@@ -296,8 +299,8 @@ function Extension() {
       <div className="wrap">
         <h2 className="center">Browser add-on</h2>
         <p className="band-lead center">
-          The add-on puts the Download button on videos, adds "Download with AyniteDM" to the right-click menu, and lets
-          AyniteDM take over the browser's normal downloads. AyniteDM offers to set it up the first time it starts;
+          The add-on puts the Download button on videos, adds "Download with ADM" to the right-click menu, and lets
+          ADM take over the browser's normal downloads. ADM offers to set it up the first time it starts;
           you can also do it from here.
         </p>
         <div className="two-col">
@@ -316,9 +319,9 @@ function Extension() {
                   <li>In your browser open the menu, choose Extensions, then Manage extensions.</li>
                   <li>Turn on the Developer mode switch in the corner of that page.</li>
                   <li>Click Load unpacked and choose the folder from step 1.</li>
-                  <li>Pin the AyniteDM icon next to the address bar. It shows "Connected" while AyniteDM is running.</li>
+                  <li>Pin the ADM icon next to the address bar. It shows "Connected" while ADM is running.</li>
                 </ol>
-                <p className="fine">Tip: in AyniteDM, choose Tools, then Install Browser Add-on, and it opens the right page and folder for you.</p>
+                <p className="fine">Tip: in ADM, choose Tools, then Install Browser Add-on, and it opens the right page and folder for you.</p>
               </>
             )}
           </article>
@@ -335,7 +338,7 @@ function Extension() {
                 </ol>
                 <details>
                   <summary>Firefox says the add-on could not be verified</summary>
-                  <p>Regular Firefox installs add-ons only from Firefox's own add-on site. Until AyniteDM is listed there, the
+                  <p>Regular Firefox installs add-ons only from Firefox's own add-on site. Until Mozilla has signed the add-on, the
                     Developer Edition and ESR editions of Firefox can install it after you switch on unverified add-ons in
                     their settings.</p>
                 </details>
@@ -353,9 +356,9 @@ function Guide({ release }) {
   const steps = [
     ["Download the installer", `Click Download for Windows above. One file, about ${size}, with everything included. On Linux, take the package for your distribution instead.`],
     ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. On Linux, double-click the package to install it, or unpack the archive and run the Install script inside the folder it creates."],
-    ["Add the browser add-on", "When AyniteDM starts for the first time it lists your browsers and sets the add-on up with a click. This is what makes the Download button appear on videos."],
-    ["Download something", "Copy any link and AyniteDM opens by itself, ready to go. Or hover a video in your browser and click Download this video. Finished files land in the AyniteDM folder inside Downloads."],
-    ["Keep it up to date", "AyniteDM tells you when a new version is out and installs it from the Tools menu, silently and in place. The video part updates the same way, more often, in seconds."],
+    ["Add the browser add-on", "When ADM starts for the first time it lists your browsers and sets the add-on up with a click. This is what makes the Download button appear on videos."],
+    ["Download something", "Copy any link and ADM opens by itself, ready to go. Or hover a video in your browser and click Download this video. Finished files land in the ADM folder inside Downloads."],
+    ["Keep it up to date", "ADM tells you when a new version is out and installs it from the Tools menu, silently and in place. The video part updates the same way, more often, in seconds."],
   ];
   return (
     <section id="guide" className="plain">
@@ -377,8 +380,39 @@ function Faq() {
       <div className="wrap narrow">
         <h2 className="center">Questions</h2>
         {FAQ.map(([q, a]) => (
-          <details key={q}><summary>{q}</summary><p>{a}</p></details>
+          <details key={q}><summary>{q}</summary><p><Inline text={a} /></p></details>
         ))}
+      </div>
+    </section>
+  );
+}
+
+const READ_MORE = [
+  ["windows", "Install on Windows 10 and 11 in three steps."],
+  ["extension", "The add-on for Chrome, Edge, Brave and Firefox."],
+  ["idm", "What ADM adds to IDM, and how to switch."],
+  ["alternatives", "Eight IDM alternatives, judged on the browser button."],
+  ["fdm", "Side by side with Free Download Manager."],
+  ["youtube", "4K, 1080p or MP3 with one click on the player."],
+  ["playlist", "Whole playlists and channels, one quality for all."],
+  ["live", "Record a live stream until you press Stop."],
+  ["torrent", "Torrents and magnet links in the same queue."],
+  ["linux", "Ubuntu, Linux Mint, Debian, Fedora, Arch."],
+  ["idmLinux", "No IDM for Linux: Wine, what breaks, native options."],
+  ["help", "Fixes for the questions people ask most."],
+  ["whatsnew", "What changed in each version."],
+];
+
+function ReadMore() {
+  return (
+    <section id="more" className="plain">
+      <div className="wrap">
+        <h2 className="center">Guides and comparisons</h2>
+        <ul className="read-more">
+          {READ_MORE.map(([key, text]) => (
+            <li key={key}><a href={page(key)}>{BY_KEY[key].name === "Home" ? "Home" : BY_KEY[key].relatedLabel || BY_KEY[key].title}</a><span>{text}</span></li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -389,7 +423,7 @@ export default function App() {
   return (
     <>
       <Header current="home" />
-      <main>
+      <main id="main">
         <Hero {...state} />
         <FeatureRows />
         <DownloadBand {...state} />
@@ -399,6 +433,7 @@ export default function App() {
         <AllFeatures />
         <Extension />
         <Guide release={state.release} />
+        <ReadMore />
         <Faq />
       </main>
       <Footer />

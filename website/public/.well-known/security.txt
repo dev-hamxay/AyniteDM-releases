@@ -1,0 +1,4 @@
+Contact: https://aynitesoft.com
+Expires: 2027-12-31T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://dev-hamxay.github.io/AyniteDM-releases/.well-known/security.txt

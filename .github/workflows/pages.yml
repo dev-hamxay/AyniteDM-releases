@@ -32,6 +32,8 @@ jobs:
       VITE_VIDEO_URL: ${{ vars.VIDEO_URL }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the build takes per-page dates from git history
 
       - uses: actions/setup-node@v4
         with:

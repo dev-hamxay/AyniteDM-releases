@@ -1,11 +1,13 @@
 {
-  "name": "aynitedm-website",
+  "name": "adm-website",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "pages": "node scripts/make-pages.mjs",
+    "build": "node scripts/make-pages.mjs && vite build && node scripts/prerender.mjs",
+    "indexnow": "node scripts/indexnow.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
