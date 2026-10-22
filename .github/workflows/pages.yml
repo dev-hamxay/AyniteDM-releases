@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p website/public/downloads
-          for f in update.json aynitedm-chrome-extension.zip aynitedm-firefox.xpi; do
+          for f in update.json adm-chrome-extension.zip adm-firefox.xpi; do
             curl -fsSL "${VITE_DOWNLOAD_BASE}$f" -o "website/public/downloads/$f" || echo "no $f yet"
           done
 

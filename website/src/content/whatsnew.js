@@ -1,11 +1,21 @@
 export default {
   key: "whatsnew",
-  updated: "15 October 2026",
+  updated: "22 October 2026",
   h1: "What's new in Aynite Download Manager",
   lead: "Every version of Aynite Download Manager (ADM) and its browser add-on, newest first. ADM installs updates by itself from the Tools menu; the video-site support updates separately, in seconds, and is not listed here.",
   download: "windows",
   cta: false,
   sections: [
+    {
+      h2: "Browser add-on 1.3.1 (22 October 2026)",
+      list: [
+        "TikTok, YouTube Shorts, Facebook and Instagram feeds: the Download button always takes the video under your pointer. Before, after scrolling to the next video it could still download the previous one.",
+        "Scrolling with the mouse wheel or the arrow keys moves the button to the new video, without moving the mouse.",
+        "YouTube's mini-player and the previews that play when you hover a thumbnail download their own video, not the page you are on.",
+        "Videos playing in Instagram's Explore and profile grids download their own post.",
+        "On other sites, the media list puts the video playing now first, and long feeds no longer stop adding videos after the first forty.",
+      ],
+    },
     {
       h2: "1.4.1 (15 October 2026)",
       list: [
