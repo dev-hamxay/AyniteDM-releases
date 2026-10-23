@@ -46,7 +46,7 @@ export function debPage({ key, name, versions, opener, snapNote = "", others, sp
       {
         h2: "Updates",
         p: [
-          "ADM tells you when a new version is out and downloads the right package, which opens in your software installer and replaces the old version. The video-site support updates by itself in seconds from Tools, then Check for Updates, with no package involved.",
+          "ADM tells you when a new version is out and downloads the right package, which opens in your software installer and replaces the old version. Video-site fixes come with these updates; Tools, then Check for Updates looks for one right away.",
         ],
       },
     ],
@@ -104,7 +104,7 @@ export function tarPage() {
       {
         h2: "Updates",
         p: [
-          "ADM tells you when a new version is out and downloads the new archive; replace the folder with it and run the Install script again. The video-site support updates by itself in seconds from Tools, then Check for Updates.",
+          "ADM tells you when a new version is out and downloads the new archive; replace the folder with it and run the Install script again. Video-site fixes come with these updates; Tools, then Check for Updates looks for one right away.",
         ],
       },
     ],

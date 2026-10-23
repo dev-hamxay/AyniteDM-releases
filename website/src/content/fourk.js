@@ -46,7 +46,6 @@ export default {
         "Downloads everything else too: files from the browser with several connections, [torrents](key:torrent), FTP and SFTP.",
         "Records [live streams](key:live).",
         "Has no limit on the number of downloads or the length of a playlist, in any edition.",
-        "Updates its video-site support in seconds from the Tools menu.",
       ],
     },
     {

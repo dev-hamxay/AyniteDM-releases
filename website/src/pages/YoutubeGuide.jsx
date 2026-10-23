@@ -15,7 +15,7 @@ const FAQ = [
   ["Can I download a whole playlist or channel?", "Yes. Paste the playlist address into ADM, or use the Grabber, and tick the videos you want. They queue up and download one after another."],
   ["Can I record a live stream?", "Yes. Hover the live video and click Download this video. ADM records from that moment until you press Stop or the broadcast ends, and saves a normal MP4."],
   ["Does it work for videos that need me to be signed in?", "Yes. Use the Download button in the browser while you are signed in to the site; ADM uses that sign-in for the download. Pasting the link into the program by hand does not carry the sign-in."],
-  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in ADM and choose Check for Updates; the video-site support updates itself in seconds, no reinstall needed. [Step by step](key:helpYoutube)."],
+  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in ADM and choose Check for Updates; if a new version is offered, it installs silently in place and brings the site fix. [Step by step](key:helpYoutube)."],
   ["Does it work on other sites?", `Yes, on ${SUPPORTED_SITES}, including Vimeo, Dailymotion, Twitter/X, TikTok, Facebook, Twitch, SoundCloud and many news sites. Netflix, Prime Video, Disney+ and other subscription services encrypt their videos, and ADM does not try to get around that.`],
   ["Is downloading YouTube videos allowed?", "Download only what you have the right to save: your own uploads, videos the creator allows you to download, and material released under a licence that permits it. Respect each site's terms and your local law. ADM is a tool; what you download with it is your responsibility."],
 ];
@@ -34,7 +34,7 @@ export default function YoutubeGuide() {
               With Aynite Download Manager (ADM), saving a video takes one click on the player and one pick from the quality list. This guide
               shows the steps on Windows and Linux, how to keep only the sound, how to handle playlists and live streams,
               and what cannot be downloaded. Without the add-on, paste the video's address into Add URL and pick the quality
-              the same way. ADM is a paid program with no ads; the video-site support updates in seconds when YouTube changes.
+              the same way. ADM is a paid program with no ads; when YouTube changes, the fix comes with ADM's next update, installed silently.
             </p>
           </div>
         </section>

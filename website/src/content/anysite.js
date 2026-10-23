@@ -15,7 +15,7 @@ export default {
     {
       h2: "Sites that work",
       p: [
-        "ADM's video support covers over 1,800 sites: YouTube, Vimeo, Dailymotion, Twitter/X, TikTok, Instagram, Facebook, Twitch, SoundCloud, Reddit, Bilibili, and many news, sports and education sites. Sites change often; that part of ADM updates itself in seconds from Tools, then Check for Updates, so a site that broke on Monday usually works again the same week without a reinstall.",
+        "ADM's video support covers over 1,800 sites: YouTube, Vimeo, Dailymotion, Twitter/X, TikTok, Instagram, Facebook, Twitch, SoundCloud, Reddit, Bilibili, and many news, sports and education sites. Sites change often; the fix comes with the next ADM update, which ADM looks for by itself and installs silently in place (Tools, then Check for Updates checks right away), so a site that broke usually works again once that update is in.",
         "When a site is not on the list, ADM still looks for the media file the page plays and offers it in the [Grabber](key:guideGrab), and it downloads any direct video link, including MP4, WebM and streaming (M3U8) addresses.",
       ],
     },
@@ -46,7 +46,7 @@ export default {
   ],
   faq: [
     ["Why is there no Download button on some videos?", "The video is protected (DRM), needs a sign-in, or the page's player hides the video from the add-on. [How to tell which, and what to do](key:helpButton)."],
-    ["Does it download from Instagram and TikTok?", "Yes, from public posts and videos. These sites change their pages often; if one stops working, Tools, then Check for Updates usually fixes it within days."],
+    ["Does it download from Instagram and TikTok?", "Yes, from public posts and videos. These sites change their pages often; if one stops working, the fix comes with the next ADM update (Tools, then Check for Updates)."],
     ["Can I download from a site that is not on the list?", "Often yes: ADM finds the media file a page plays and offers it in the Grabber, and it downloads any direct video link."],
     ["Does it work on Linux?", "Yes, with the same add-on in Chrome, Chromium, Brave and Firefox."],
     ["Is downloading videos legal?", "Download only what you have the right to save: your own uploads, videos the creator allows you to download, and material released under a licence that permits it. Many platforms' terms restrict downloading."],

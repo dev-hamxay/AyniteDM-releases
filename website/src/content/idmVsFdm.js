@@ -11,7 +11,7 @@ export default {
       list: [
         "Pick IDM if you are on Windows only, want the most-tested browser panel on video sites, and do not need torrents.",
         "Pick FDM if free is the deciding factor, or you also use macOS or Android, and you want torrents in the same program.",
-        "Pick Aynite Download Manager if you want Windows and Linux, a quality list on every video up to 4K, torrents, live stream recording and video-site updates in seconds, and a licence is acceptable.",
+        "Pick Aynite Download Manager if you want Windows and Linux, a quality list on every video up to 4K, torrents, live stream recording and silent in-place updates, and a licence is acceptable.",
       ],
     },
     {
@@ -28,7 +28,7 @@ export default {
           ["Live stream recording", "No", "No", "Yes, Start to Stop, saved as MP4"],
           ["Scheduler, shut down when done", "Yes", "Yes", "Yes"],
           ["Site grabber", "Yes; follows links into further pages", "Site Explorer and HTML Spider", "Yes; one page at a time"],
-          ["Video-site fixes", "With program updates", "With program releases", "In seconds from the Tools menu"],
+          ["Video-site fixes", "With program updates", "With program releases", "With each ADM update, installed silently"],
           ["Open source", "No", "No (versions after 3.9.7 are proprietary)", "No"],
         ],
       },
@@ -53,7 +53,6 @@ export default {
       list: [
         "Records [live streams](key:live) from Start until Stop.",
         "Shows every quality the site offers on the video itself, up to 4K, with MP3 and M4A, on YouTube and over 1,800 sites.",
-        "Updates its video-site support in seconds without a new version of the program.",
         "Scans finished files and shows their SHA-256 and MD5.",
         "Runs on Linux with the same browser add-on as on Windows: [ADM for Linux](key:linux).",
       ],

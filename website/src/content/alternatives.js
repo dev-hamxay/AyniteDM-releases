@@ -110,7 +110,7 @@ export default {
       h2: "Aynite Download Manager (ours)",
       p: [
         "Paid · Windows, Linux · add-on for Chrome, Edge, Brave and Firefox · active in 2026 · [this site](key:home)",
-        "Aynite Download Manager (ADM) is a paid program for Windows and Linux by AyniteSoft, built to pass the browser-button test: a Download button on every video with the full quality list up to 4K and MP3, Download with ADM in the right-click menu, and a switch that takes over the browser's downloads. It adds torrents, live stream recording, a scheduler, file checks and video-site updates in seconds. For: the button, Linux, torrents, live recording, no ads. Against: paid, no macOS version, no subtitle download. [Compared with IDM feature by feature](key:idm).",
+        "Aynite Download Manager (ADM) is a paid program for Windows and Linux by AyniteSoft, built to pass the browser-button test: a Download button on every video with the full quality list up to 4K and MP3, Download with ADM in the right-click menu, and a switch that takes over the browser's downloads. It adds torrents, live stream recording, a scheduler, file checks and silent in-place updates that bring video-site fixes. For: the button, Linux, torrents, live recording, no ads. Against: paid, no macOS version, no subtitle download. [Compared with IDM feature by feature](key:idm).",
       ],
       shot: { src: "screenshots/youtube-button.jpg", alt: "The Aynite Download Manager Download button with its quality list over a YouTube video, the browser-button test in practice" },
     },

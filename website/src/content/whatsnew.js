@@ -2,10 +2,17 @@ export default {
   key: "whatsnew",
   updated: "23 October 2026",
   h1: "What's new in Aynite Download Manager",
-  lead: "Every version of Aynite Download Manager (ADM) and its browser add-on, newest first. ADM installs updates by itself from the Tools menu; the video-site support updates separately, in seconds, and is not listed here.",
+  lead: "Every version of Aynite Download Manager (ADM) and its browser add-on, newest first. ADM installs its updates by itself, silently and in place; each version brings the latest support for video sites.",
   download: "windows",
   cta: false,
   sections: [
+    {
+      h2: "1.4.3 (23 October 2026)",
+      list: [
+        "One update for everything: each ADM version now carries the latest support for video sites, and the Updates window only shows ADM itself. The separate video-site update and its restart are gone.",
+        "This version brings the newest video-site support, with the latest fixes for YouTube and other sites.",
+      ],
+    },
     {
       h2: "1.4.2 and browser add-on 1.3.2 (23 October 2026)",
       list: [

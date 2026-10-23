@@ -78,7 +78,7 @@ export default {
     ["Which browsers work?", "Google Chrome, Microsoft Edge, Brave and Chromium, on Windows and Linux, including Flatpak and Snap builds. Firefox: the Developer Edition and ESR editions (including the firefox-esr that Debian ships) install the add-on today after you allow unsigned add-ons; regular Firefox, including Ubuntu's Snap and the Flathub build, accepts it once Mozilla has signed it."],
     ["Does it work in Opera, Vivaldi or other Chromium browsers?", "The Chrome package can usually be loaded unpacked in them, but ADM sets up and tests only Chrome, Edge, Brave and Firefox."],
     ["Does the add-on slow the browser down?", "No. It does nothing until you hover a video, right-click, or start a download; it keeps no history and runs no background work."],
-    ["Will it break when the browser updates?", "No. The add-on uses the standard extension interfaces of Chrome and Firefox. Video sites change more often than browsers do, and that part updates inside ADM in seconds."],
+    ["Will it break when the browser updates?", "No. The add-on uses the standard extension interfaces of Chrome and Firefox. Video sites change more often than browsers do, and those changes are handled by ADM's own updates, which install silently."],
   ],
   related: ["chrome", "edge", "brave", "firefox", "helpDisconnected", "helpButton"],
 };

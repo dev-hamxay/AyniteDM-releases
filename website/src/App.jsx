@@ -11,7 +11,7 @@ const TRUST = [
   ["No ads, no bundled extras", "The installer contains ADM and nothing else."],
   ["Every download can be verified", "The installer's fingerprint is published here, and the built-in updater checks it before installing."],
   ["Your files stay yours", "Nothing about your downloads leaves your computer."],
-  ["Updates itself", "New versions install in place with one click; video-site fixes install in seconds."],
+  ["Updates itself", "New versions install silently in place with one click, and each one brings the latest video-site fixes."],
   ["Windows and Linux", "Windows 10 and 11, Ubuntu, Linux Mint, Debian and others."],
   ["Made by AyniteSoft", "Built and supported by one company, with a privacy policy you can read."],
 ];
@@ -75,7 +75,7 @@ const FEATURES = [
   "Torrents and magnet links", "FTP and SFTP, with saved logins", "Proxy support",
   "Scheduler with shutdown when done", "Speed limits, global and per download", "Duplicate link detection",
   "Virus scan and damage check on completion", "Sorted into category folders", "Clipboard watching: copy a link, it pops up",
-  "Updates itself; video site support updates in seconds", "Windows 10 and 11", "Linux: Ubuntu, Mint, Debian and others",
+  "Updates itself, silently and in place", "Windows 10 and 11", "Linux: Ubuntu, Mint, Debian and others",
 ];
 
 const WHATS_NEW = [
@@ -88,7 +88,7 @@ const WHATS_NEW = [
 const FAQ = [
   ["Windows says \"Windows protected your PC\". Is it safe?", "Yes, when the file came from this page. Windows shows that screen for new programs that are not yet signed with a certificate it recognises, so the publisher reads Unknown publisher for now. Compare the file's SHA-256 with the one under Verify this file, then click More info and Run anyway. [What the notice means](key:helpSmartscreen)."],
   ["Is Aynite Download Manager an alternative to IDM?", "Yes. Aynite Download Manager (ADM) and Internet Download Manager (IDM) both speed up downloads with several connections, resume broken downloads and add a Download button to the browser. ADM also runs on Linux, records live streams, downloads torrents and magnet links, and lists video qualities up to 4K. [Feature by feature](key:idm), or see the round-up of [IDM alternatives](key:alternatives)."],
-  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in ADM and choose Check for Updates; the video part of the program updates itself in a few seconds, no reinstall needed. [Step by step](key:helpYoutube)."],
+  ["YouTube downloads stopped working. What now?", "Video sites change often. Open the Tools menu in ADM and choose Check for Updates; if a new version is offered, it installs silently in place and brings the site fix. [Step by step](key:helpYoutube)."],
   ["Can it download videos that need me to be signed in?", "Yes. Use the Download button that the browser add-on shows on the video while you are signed in to the site, and ADM uses that sign-in."],
   ["Why is there no Download button on Netflix, Prime Video or Disney+?", "Those services encrypt their videos (DRM) and the browser only decrypts them inside a locked player. No download manager can save them, and getting around that protection is against the law in most countries, so ADM does not try. The add-on tells you when a video is protected instead of leaving you guessing."],
   ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, press Alt+Shift+D and paste the link, drag it onto the ADM window, or turn on the clipboard watch in Options so that a copied link opens ADM by itself."],
@@ -358,7 +358,7 @@ function Guide({ release }) {
     ["Run it", "Open the downloaded file. If Windows shows \"Windows protected your PC\", click More info, then Run anyway. No administrator password is needed. On Linux, double-click the package to install it, or unpack the archive and run the Install script inside the folder it creates."],
     ["Add the browser add-on", "When ADM starts for the first time it lists your browsers and sets the add-on up with a click. This is what makes the Download button appear on videos."],
     ["Download something", "Copy any link and ADM opens by itself, ready to go. Or hover a video in your browser and click Download this video. Finished files land in the ADM folder inside Downloads."],
-    ["Keep it up to date", "ADM tells you when a new version is out and installs it from the Tools menu, silently and in place. The video part updates the same way, more often, in seconds."],
+    ["Keep it up to date", "ADM tells you when a new version is out and installs it from the Tools menu, silently and in place. Each new version brings the latest video-site fixes."],
   ];
   return (
     <section id="guide" className="plain">

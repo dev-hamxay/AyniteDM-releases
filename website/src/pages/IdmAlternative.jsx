@@ -13,7 +13,7 @@ const TABLE = [
   ["Whole-page grabber and playlists", "Yes; the Grabber lists one page at a time", "Yes; its Site Grabber can follow links into further pages"],
   ["Scheduler and shutdown when done", "Yes", "Yes"],
   ["Checks on finished files", "Virus scan with your system's security software, damage check", "Virus scan with a scanner you point it to"],
-  ["Updates", "Installs itself silently; video-site support updates in seconds", "Checks for new versions"],
+  ["Updates", "Installs itself silently; video-site fixes come with each update", "Checks for new versions"],
   ["Ads or bundled extras", "None", "None"],
   ["Price", "Paid licence from AyniteSoft; prices on aynitesoft.com", "Paid licence after a trial period"],
 ];
@@ -28,7 +28,7 @@ const FAQ = [
   ["Is IDM free?", "No. Internet Download Manager comes with a 30-day trial and then needs a paid licence. Aynite Download Manager is licensed too; current prices are on aynitesoft.com."],
   ["Can I keep IDM installed while I try ADM?", "Yes. Install both and decide later. Only one of them should catch browser downloads at a time, so turn off that option in one of them."],
   ["Does ADM read IDM's download list or settings?", "No. It starts with an empty list. Paste the links you still need."],
-  ["What does ADM do that IDM does not?", "Aynite Download Manager runs on Linux, records live broadcasts, downloads torrents and magnet links, and updates its video-site support in seconds without a reinstall."],
+  ["What does ADM do that IDM does not?", "Aynite Download Manager runs on Linux, records live broadcasts, downloads torrents and magnet links, and installs its own updates silently in place."],
   ["What does IDM do that ADM does not?", "IDM has two decades of fixes behind it, and some sites or corporate setups are tuned for it. Its Site Grabber can follow links into further pages, where ADM's Grabber lists one page at a time; it downloads subtitles for some streaming videos, which ADM does not do yet; and it supports older Windows versions, while ADM needs 64-bit Windows 10 or 11. Neither has a Mac version."],
 ];
 
@@ -90,7 +90,7 @@ export default function IdmAlternative() {
                 ADM runs on Linux as well as Windows. It records live broadcasts from the moment you press Start
                 until you press Stop. It downloads torrents and magnet links without a second program. Its video support
                 covers {SUPPORTED_SITES} with a quality list that goes up to 4K, and when a site changes, the fix arrives
-                through a tiny update in seconds rather than a new release.
+                with ADM's next update, which installs itself silently in place.
               </p>
             </div>
             <figure className="row-shot">

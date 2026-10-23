@@ -36,7 +36,6 @@ export default {
       list: [
         "Downloads [torrents and magnet links](key:torrent) in the same queue.",
         "Records [live streams](key:live) from Start until Stop.",
-        "Updates its video-site support in seconds from the Tools menu, without a new version of the program.",
         "Scans finished files and shows their SHA-256 and MD5.",
         "Ships as one installer with everything inside, and installs its own update silently.",
       ],
@@ -58,7 +57,7 @@ export default {
     {
       h2: "Price and licence",
       p: [
-        "XDM is free. Aynite Download Manager is a paid product with a licence from AyniteSoft; prices are on [aynitesoft.com](https://aynitesoft.com). ADM's case is a maintained program with torrents, live recording, file checks and video-site updates in seconds, with no ads and no extras.",
+        "XDM is free. Aynite Download Manager is a paid product with a licence from AyniteSoft; prices are on [aynitesoft.com](https://aynitesoft.com). ADM's case is a maintained program with torrents, live recording, file checks and silent in-place updates, with no ads and no extras.",
       ],
     },
     {

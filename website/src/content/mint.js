@@ -12,7 +12,7 @@ export default debPage({
       p: [
         "Linux Mint ships no Snap packages. Chromium comes from Mint's own repository as an ordinary program and takes the add-on like any other Chromium; Chrome and Brave from their makers' repositories work the same way. Mint's Firefox is the regular edition, which accepts the add-on once Mozilla has signed it; until then use Chromium, Chrome or Brave, or Firefox Developer Edition or ESR.",
         "Cinnamon, MATE and XFCE all show ADM's tray icon in their panels without any extension, so the program sits in the tray from the first start. Closing the window keeps it there; Exit is in the tray icon's menu.",
-        "LMDE 6, the Debian-based edition, uses the same package and the same steps. Mint's Update Manager does not update ADM: ADM checks for its own updates and offers the new package itself, and the video-site support updates from inside ADM in seconds.",
+        "LMDE 6, the Debian-based edition, uses the same package and the same steps. Mint's Update Manager does not update ADM: ADM checks for its own updates and offers the new package itself, and video-site fixes come with those updates.",
       ],
     },
   ],

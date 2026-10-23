@@ -64,7 +64,7 @@ export default {
       h2: "Updates",
       p: [
         "ADM checks for a new version when it starts and every few hours while it runs. When one is out, a banner above the download list offers Download and install: the program closes, the installer runs silently, and the new version starts by itself. Downloads that were running continue.",
-        "The part of ADM that understands video sites is updated separately, from Tools, then Check for Updates. That takes seconds and needs no reinstall, which matters because video sites change often. [What to do when YouTube downloads stop working](key:helpYoutube).",
+        "Fixes for video sites come with these updates, which matters because video sites change often; Tools, then Check for Updates looks for one right away. [What to do when YouTube downloads stop working](key:helpYoutube).",
       ],
     },
     {

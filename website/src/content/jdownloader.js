@@ -29,7 +29,7 @@ export default {
     {
       h2: "What is the same",
       p: [
-        "Both download with several connections, pause and resume, can watch the clipboard for links (on in JDownloader, a choice in ADM's Options), download whole playlists and pages, and run on Windows and Linux. Both get video-site fixes without a full reinstall: JDownloader through its plugin updates, ADM through Tools, then Check for Updates.",
+        "Both download with several connections, pause and resume, can watch the clipboard for links (on in JDownloader, a choice in ADM's Options), download whole playlists and pages, and run on Windows and Linux. Both get video-site fixes through their own updates: JDownloader through its plugin updates, ADM through new versions it installs silently in place (Tools, then Check for Updates).",
       ],
     },
     {

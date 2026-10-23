@@ -31,7 +31,7 @@ export default {
     {
       h2: "5. A player the add-on cannot see yet",
       p: [
-        "Some pages load the video only after you press play, or inside a player the add-on does not recognise. Press play, then hover again. If the button still does not appear, right-click the page and choose Download video from this page, which asks ADM to look at the page itself; or copy the page's address and paste it into ADM. If a site that worked last week has no button today, the site probably changed: [update the video-site support](key:helpYoutube).",
+        "Some pages load the video only after you press play, or inside a player the add-on does not recognise. Press play, then hover again. If the button still does not appear, right-click the page and choose Download video from this page, which asks ADM to look at the page itself; or copy the page's address and paste it into ADM. If a site that worked last week has no button today, the site probably changed: [install the latest ADM update](key:helpYoutube).",
       ],
     },
     {
@@ -43,7 +43,7 @@ export default {
   ],
   faq: [
     ["Why is there a button on YouTube but not on another site?", "Either the site is not among the supported ones yet, or its player hides the video from the add-on. Try Download video from this page from the right-click menu, or paste the page's address into ADM."],
-    ["Why does the button appear and then the download fails?", "Most often a site change (update the video-site support) or a sign-in requirement (start from the page while signed in, with cookies on)."],
+    ["Why does the button appear and then the download fails?", "Most often a site change (install the latest ADM update from Tools, then Check for Updates) or a sign-in requirement (start from the page while signed in, with cookies on)."],
     ["Can I download from Netflix with a different tool?", "No tool can, legitimately. Those videos are encrypted and only the official player decrypts them."],
     ["Does the button work in private or incognito windows?", "Only if the browser allows the add-on in those windows: Chrome, Edge and Brave have a switch for that on the add-on's details page; Firefox asks when you install it."],
   ],

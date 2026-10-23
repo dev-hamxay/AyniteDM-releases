@@ -20,7 +20,7 @@ export default {
         "Records [live streams](key:live) from the moment you press Start until Stop.",
         "Downloads [torrents and magnet links](key:torrent) in the same queue as ordinary files.",
         "Schedules the queue, shuts the PC down when it is done, sorts files by type, verifies checksums and scans finished files.",
-        "Installs its own updates in place with one click, and updates its video-site support in seconds without a reinstall.",
+        "Installs its own updates silently in place with one click, and each update brings the latest video-site fixes.",
       ],
       shot: { src: "screenshots/main.png", alt: "The main window of Aynite Download Manager on Windows with a list of downloads, progress bars and speeds", eager: true },
     },

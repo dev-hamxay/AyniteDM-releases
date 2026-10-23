@@ -29,7 +29,7 @@ export default {
     {
       h2: "Why a desktop program beats online converters",
       p: [
-        "Online converters put a limit on length, a limit on the number of files, a wait before the download and advertising around all of it, and they stop working when YouTube changes something. ADM has no such limits, converts on your own computer, and the part that understands YouTube updates itself in seconds when the site changes: Tools, then Check for Updates.",
+        "Online converters put a limit on length, a limit on the number of files, a wait before the download and advertising around all of it, and they stop working when YouTube changes something. ADM has no such limits, converts on your own computer, and when YouTube changes something, the fix comes with ADM's next update, which it looks for by itself: Tools, then Check for Updates checks right away.",
       ],
     },
     {
