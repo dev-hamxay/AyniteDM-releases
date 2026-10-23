@@ -1,11 +1,19 @@
 export default {
   key: "whatsnew",
-  updated: "22 October 2026",
+  updated: "23 October 2026",
   h1: "What's new in Aynite Download Manager",
   lead: "Every version of Aynite Download Manager (ADM) and its browser add-on, newest first. ADM installs updates by itself from the Tools menu; the video-site support updates separately, in seconds, and is not listed here.",
   download: "windows",
   cta: false,
   sections: [
+    {
+      h2: "1.4.2 and browser add-on 1.3.2 (23 October 2026)",
+      list: [
+        "The Download button over a video on a home feed, channel, profile or search page downloads that one video. Before, on the YouTube home page it could send the whole page, which opened a list of hundreds of recommended videos.",
+        "Pages with many videos, such as a GitHub project page or an article: each player downloads its own file, named as the page shows it, and its list no longer repeats the other players' files.",
+        "GitHub videos keep downloading when the page has been open for a while; before, their links ran out after five minutes.",
+      ],
+    },
     {
       h2: "Browser add-on 1.3.1 (22 October 2026)",
       list: [
