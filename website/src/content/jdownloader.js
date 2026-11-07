@@ -1,7 +1,7 @@
 export default {
   key: "jdownloader",
   h1: "Aynite Download Manager (ADM) or JDownloader 2?",
-  lead: "JDownloader 2 is a free, open-source download manager with a large community, built in Java, known for file-hosting sites, premium accounts and remote control. Aynite Download Manager is a paid Windows and Linux program that runs without Java, built around the browser. The differences, as of October 2026.",
+  lead: "JDownloader 2 is a free, open-source download manager with a large community, built in Java, known for file-hosting sites, premium accounts and remote control. Aynite Download Manager is a free Windows and Linux program (with a single in-app ad a licence removes) that runs without Java, built around the browser. The differences, as of October 2026.",
   checked: "October 2026",
   updated: "15 October 2026",
   download: "windows",
@@ -11,7 +11,7 @@ export default {
       table: {
         cols: ["", "Aynite Download Manager", "JDownloader 2"],
         rows: [
-          ["Price", "Paid licence; no ads, no bundled extras", "Free, open source"],
+          ["Price", "Free with one in-app ad; a licence removes it", "Free, open source"],
           ["Runs on", "Windows 10 and 11; Linux", "Windows, macOS, Linux, Synology NAS"],
           ["Needs Java", "No", "Yes; the installer bundles it"],
           ["Browser integration", "Add-on for Chrome, Edge, Brave and Firefox: Download button on videos, right-click menu, takes over browser downloads", "Clipboard watching and the MyJDownloader extension; reviews call the browser integration its weak point"],
@@ -60,7 +60,7 @@ export default {
     {
       h2: "Price and licence",
       p: [
-        "JDownloader 2 is free. Aynite Download Manager is a paid product with a licence from AyniteSoft; prices are on [aynitesoft.com](https://aynitesoft.com). If file-hosting sites are your daily work, JDownloader is the specialist. If you want downloads and videos from the browser with a button on the player, torrents and live recording in one program, ADM.",
+        "JDownloader 2 is free and open source. Aynite Download Manager is also free to use, supported by a single in-app ad that a licence from AyniteSoft removes; prices are on [aynitesoft.com](https://aynitesoft.com). If file-hosting sites are your daily work, JDownloader is the specialist. If you want downloads and videos from the browser with a button on the player, torrents and live recording in one program, ADM.",
       ],
     },
     {

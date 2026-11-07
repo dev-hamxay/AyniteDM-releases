@@ -1,6 +1,6 @@
 export default {
   key: "playlist",
-  updated: "15 October 2026",
+  updated: "6 November 2026",
   h1: "Download a whole YouTube playlist or channel with Aynite Download Manager",
   lead: "With Aynite Download Manager (ADM), paste the address of a playlist, or open the Grabber on the page, tick the videos you want and pick one quality for all of them. ADM queues them and downloads them in turn, in the quality you chose, up to 4K, or as MP3. Windows and Linux.",
   download: "windows",
@@ -19,6 +19,12 @@ export default {
         "Right-click the playlist page and choose Download all links on this page. The [Grabber](key:guideGrab) lists what it found; the Videos on site filter narrows it to the videos. Tick, pick a quality, Start.",
       ],
       shot: { src: "screenshots/grabber.png", alt: "The Grabber window of Aynite Download Manager listing the videos found on a page, with filters and a Select all button", eager: true },
+    },
+    {
+      h2: "Name and number the files",
+      p: [
+        "Name rule in the Add window decides what every file is called. Choose {number} - {title} for 01 - First video, or {series} {episode} - {title} for Show S01E03 - Title. A video keeps its place in the playlist as its number, so unticking some does not shift the rest, and Number from sets where counting starts. The episode number comes from the site when it gives one. Other details you can use are {uploader}, {date}, {id}, {site}, {quality} and {playlist}; set a default in Options, under Video Sites.",
+      ],
     },
     {
       h2: "Private and members-only playlists",

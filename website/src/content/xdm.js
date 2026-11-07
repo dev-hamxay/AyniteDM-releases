@@ -1,7 +1,7 @@
 export default {
   key: "xdm",
   h1: "Aynite Download Manager (ADM) or Xtreme Download Manager (XDM)?",
-  lead: "XDM is a free, open-source download manager for Windows, macOS and Linux with a browser extension and video capture. In 2026 some directories list it as discontinued while its own website offers XDM 9. Aynite Download Manager is a paid, actively maintained Windows and Linux program. The facts side by side, as of October 2026.",
+  lead: "XDM is a free, open-source download manager for Windows, macOS and Linux with a browser extension and video capture. In 2026 some directories list it as discontinued while its own website offers XDM 9. Aynite Download Manager is a free, actively maintained Windows and Linux program, supported by a single in-app ad a licence removes. The facts side by side, as of October 2026.",
   checked: "October 2026",
   updated: "14 October 2026",
   download: "windows",
@@ -11,7 +11,7 @@ export default {
       table: {
         cols: ["", "Aynite Download Manager", "Xtreme Download Manager"],
         rows: [
-          ["Price", "Paid licence; no ads, no bundled extras", "Free, open source"],
+          ["Price", "Free with one in-app ad; a licence removes it", "Free, open source"],
           ["Runs on", "Windows 10 and 11; Linux", "Windows, macOS, Linux"],
           ["Several connections, pause and resume", "Yes", "Yes"],
           ["Browser add-on", "Chrome, Edge, Brave and Firefox: Download button on videos, right-click menu, takes over browser downloads", "Extensions for Chrome, Edge, Brave and Firefox; a 2026 discussion reports its Chrome extension being removed from the store for a time"],
@@ -57,7 +57,7 @@ export default {
     {
       h2: "Price and licence",
       p: [
-        "XDM is free. Aynite Download Manager is a paid product with a licence from AyniteSoft; prices are on [aynitesoft.com](https://aynitesoft.com). ADM's case is a maintained program with torrents, live recording, file checks and silent in-place updates, with no ads and no extras.",
+        "XDM is free and open source. Aynite Download Manager is also free to use, supported by a single in-app ad that a licence from AyniteSoft removes; prices are on [aynitesoft.com](https://aynitesoft.com). ADM's case is a maintained program with torrents, live recording, file checks and silent in-place updates, with no toolbars or bundled extras.",
       ],
     },
     {

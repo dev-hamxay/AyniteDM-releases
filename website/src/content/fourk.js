@@ -9,7 +9,7 @@ export default {
     {
       h2: "Download manager or video downloader?",
       p: [
-        "The two programs overlap on one job, saving a video from YouTube, and differ on everything around it. 4K Video Downloader Plus is built for pasting a video or playlist link and getting the file, with subtitles and channel subscriptions. Aynite Download Manager is built around the browser: a Download button on the video with every quality the site offers, a right-click menu, downloads of ordinary files with several connections, torrents, a scheduler, and live stream recording.",
+        "The two programs overlap on one job, saving a video from YouTube, and differ on everything around it. 4K Video Downloader Plus is built for pasting a video or playlist link and getting the file, with channel subscriptions. Aynite Download Manager is built around the browser: a Download button on the video with every quality the site offers, a right-click menu, downloads of ordinary files with several connections, torrents, a scheduler, and live stream recording.",
       ],
     },
     {
@@ -18,12 +18,12 @@ export default {
         cols: ["", "Aynite Download Manager", "4K Video Downloader Plus"],
         rows: [
           ["Kind of program", "Download manager with video download built in", "Video downloader"],
-          ["Price", "Paid licence; no ads", "Free tier with limits; Lite, Personal and Pro licences (its site listed $15 a year, $25 and $60 in October 2026)"],
+          ["Price", "Free with one in-app ad; a licence removes it", "Free tier with limits; Lite, Personal and Pro licences (its site listed $15 a year, $25 and $60 in October 2026)"],
           ["Runs on", "Windows, Linux", "Windows, macOS, Linux"],
           ["How a video is chosen", "Hover the player, click Download, pick from every quality the site offers", "Copy the link and paste it into the program"],
           ["Video sites", "YouTube and 1,800+ sites", "YouTube, TikTok, Vimeo, Facebook, SoundCloud, Twitch, Bilibili and others"],
           ["Playlists and channels", "Yes", "Yes, including channel subscriptions"],
-          ["Subtitles", "Not offered", "Yes"],
+          ["Subtitles", "Yes: SRT, VTT or inside the video", "Yes"],
           ["Live stream recording", "Yes, with a Stop button", "Not listed among its features"],
           ["Regular file downloads, several connections, pause and resume", "Yes", "No"],
           ["Takes over browser downloads", "Yes", "No"],
@@ -36,7 +36,7 @@ export default {
     {
       h2: "What is the same",
       p: [
-        "Both save YouTube videos in the quality you pick, including 4K at 60 frames per second, both extract audio, both download whole playlists and channels, and both run on Windows and Linux.",
+        "Both save YouTube videos in the quality you pick, including 4K at 60 frames per second, both extract audio, both download subtitles, both download whole playlists and channels, and both run on Windows and Linux.",
       ],
     },
     {
@@ -51,7 +51,6 @@ export default {
     {
       h2: "What only 4K Video Downloader Plus does",
       list: [
-        "Downloads subtitles.",
         "Subscribes to channels and fetches new videos automatically.",
         "Runs on macOS.",
         "Has a free tier, within its limits.",
@@ -60,7 +59,7 @@ export default {
     {
       h2: "Free tier limits and licence tiers",
       p: [
-        "4K Video Downloader Plus has a free Starter edition with quantity limits, a Lite licence paid yearly, and Personal and Pro licences paid once; its site listed $15 a year, $25 and $60 in October 2026. Aynite Download Manager has one licence with everything included and no limits; prices are on [aynitesoft.com](https://aynitesoft.com).",
+        "4K Video Downloader Plus has a free Starter edition with quantity limits, a Lite licence paid yearly, and Personal and Pro licences paid once; its site listed $15 a year, $25 and $60 in October 2026. Aynite Download Manager is free with every feature and no limits, supported by a single in-app ad; one licence removes the ad. Prices are on [aynitesoft.com](https://aynitesoft.com).",
       ],
     },
   ],
@@ -68,8 +67,8 @@ export default {
     ["Is 4K Video Downloader free?", "There is a free tier with limits on how much you can download. The Lite, Personal and Pro licences remove them."],
     ["Is 4K Video Downloader safe?", "It is a long-established program. Download it only from its own site, 4kdownload.com, never from mirrors."],
     ["Can ADM download 4K and 8K?", "ADM lists every quality the site offers for a video. On YouTube that is often 2160p (4K) at 60 frames per second, and higher where the uploader provided it."],
-    ["Does ADM download subtitles?", "Not at the moment. If subtitles are essential, 4K Video Downloader Plus has them."],
-    ["Which should I choose?", "For videos only, with subtitles and channel subscriptions, 4K Video Downloader Plus. For everything you download, with a button on the video, torrents and live recording, ADM."],
+    ["Does ADM download subtitles?", "Yes. Choose the languages when you add the video, then save them as SRT or VTT files or keep them inside the video."],
+    ["Which should I choose?", "For videos only, with channel subscriptions, 4K Video Downloader Plus. For everything you download, with a button on the video, torrents and live recording, ADM."],
   ],
   related: ["youtube", "playlist", "mp3", "alternatives"],
 };

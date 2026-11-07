@@ -2,7 +2,7 @@ export default {
   key: "anysite",
   updated: "14 October 2026",
   h1: "Download a video from almost any website with one click in Aynite Download Manager",
-  lead: "Aynite Download Manager (ADM) downloads a video from almost any website: hover the video, click Download, pick the quality. It works on YouTube, Vimeo, Dailymotion, Twitter/X, TikTok, Twitch, SoundCloud and over 1,800 other sites, on Windows and Linux. No online converter, no pasting into a web form, no ads.",
+  lead: "Aynite Download Manager (ADM) downloads a video from almost any website: hover the video, click Download, pick the quality. It works on YouTube, Vimeo, Dailymotion, Twitter/X, TikTok, Twitch, SoundCloud and over 1,800 other sites, on Windows and Linux. No online converter, no pasting into a web form.",
   download: "windows",
   sections: [
     {

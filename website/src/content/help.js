@@ -11,7 +11,7 @@ export default {
         "[No Download button on a video](key:helpButton): the add-on is off, ADM is not running, the video is protected, or it needs a sign-in. How to tell which.",
         "[\"Windows protected your PC\" when installing](key:helpSmartscreen): what the SmartScreen notice means and how to check the file before you continue.",
         "[Resume a failed download](key:helpResume): what ADM does on its own, and what to do when a server refuses to resume.",
-        "[The add-on says Disconnected](key:helpDisconnected): start ADM, check the tray, check for a program holding its connection, reinstall the add-on.",
+        "[The add-on cannot start or reach ADM](key:helpDisconnected): update both once, open ADM once, check for a program holding its connection, reinstall the add-on.",
       ],
     },
     {

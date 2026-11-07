@@ -32,7 +32,7 @@ export default {
     },
   ],
   faq: [
-    ["Is the ADM installer safe?", "Yes, when it comes from this site and its SHA-256 matches the one shown on the download section. The installer contains ADM and nothing else: no ads, no bundled extras."],
+    ["Is the ADM installer safe?", "Yes, when it comes from this site and its SHA-256 matches the one shown on the download section. The installer contains ADM and nothing else: no toolbars, no bundled extras."],
     ["Will the notice appear every time?", "Only until the installer has built a reputation on SmartScreen, or until the installer is signed with a recognised certificate. Updates installed from inside ADM run silently and do not show it."],
     ["Does Windows Security flag ADM?", "No. The SmartScreen notice is about reputation; Windows Security's scan of the file is separate and passes."],
     ["Why does the download section show a fingerprint at all?", "So anyone can check the file independently of any signature or store. ADM does the same for your own downloads: every finished file shows its SHA-256 and MD5. [Verify a download](key:guideChecksum)."],

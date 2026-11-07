@@ -1,14 +1,15 @@
 export default {
   key: "live",
-  updated: "14 October 2026",
+  updated: "6 November 2026",
   h1: "How to download a YouTube live stream on PC: record it with Aynite Download Manager, or three other ways",
-  lead: "A live stream has no file to download, so ordinary downloaders show nothing. There are four ways to keep one on a PC. Aynite Download Manager (ADM) records it: hover the live video, click Download this video, and ADM saves everything from that moment until you press Stop or the broadcast ends, as a normal MP4. The three alternatives, and when each one fits, are below.",
+  lead: "A live stream has no file to download, so ordinary downloaders show nothing. There are four ways to keep one on a PC. Aynite Download Manager (ADM) records it: hover the live video, click Download this video, and ADM saves everything from that moment until the broadcast ends, a timer you set runs out, or you press Stop, as a normal MP4 or MKV. The three alternatives, and when each one fits, are below.",
   download: "windows",
   sections: [
     {
       h2: "Way 1: record it with Aynite Download Manager",
       p: [
         "The Download button appears on live videos too, and the quality list shows the live qualities the site offers. Pick one and the progress window switches to recording: it shows LIVE with the time captured so far and the size written. Press Stop whenever you want. The recording is closed properly and turned into an MP4 that plays anywhere. Works on YouTube, Twitch and the other live sites among the [1,800+ supported sites](key:anysite), on Windows and Linux.",
+        "To record without staying at the computer, set Stop recording in the Add window: after a length you choose, such as 1 hour 30 minutes, or at a time of day. ADM stops by itself and keeps the file.",
         "Dropped connections are handled for you: ADM reconnects on its own, through outages of up to about twenty minutes, and joins the pieces when you stop. If the broadcast itself ends, the recording ends with it.",
       ],
       shot: { src: "screenshots/live.png", alt: "Aynite Download Manager recording a live stream, with the time captured so far and a Stop button", eager: true },
@@ -60,9 +61,10 @@ export default {
     ["Can I download a YouTube live stream that is already running?", "Yes. With Aynite Download Manager the recording starts at the moment you press Download; what was broadcast before that is not included unless the site keeps it as a replay, in which case download the replay afterwards."],
     ["Can I download a YouTube live stream from the start?", "If it is your own stream, from YouTube Studio once it has ended. For other people's streams, only where the site keeps a replay; ADM then downloads the replay like any video."],
     ["How long can a recording be?", "As long as the broadcast and your disk allow. ADM writes the recording to disk as it goes; after a crash or a restart of the program the recording picks up again and the parts are joined."],
-    ["What format is the recording?", "A standard MP4 in your Videos folder. The picture and sound are saved as the site sends them, not re-encoded, so nothing is lost."],
+    ["Can a recording stop by itself?", "Yes. In the Add window, choose how long to record or the time of day to stop. Without a timer, the recording ends when the broadcast does or when you press Stop."],
+    ["What format is the recording?", "A standard MP4 or MKV, as you choose, in your Videos folder. The picture and sound are saved as the site sends them, not re-encoded, so nothing is lost."],
     ["Can I download Twitch streams and VODs?", "Yes. A live Twitch stream is recorded the same way, and past broadcasts (VODs) are ordinary videos: the Download button downloads the whole recording in the quality you pick, with no size limit."],
-    ["Does it work on Linux?", "Yes, identically, with the same Stop button and the same MP4 result."],
+    ["Does it work on Linux?", "Yes, identically, with the same Stop button and the same file types."],
   ],
   related: ["youtube", "anysite", "playlist", "linux", "helpButton"],
 };

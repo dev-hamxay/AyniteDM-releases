@@ -1,21 +1,21 @@
 {
-  "version": "1.4.3",
-  "url": "ADM-Setup-1.4.3.exe",
-  "sha256": "ecc105806201605e57c093de0c3cfeb584e4657ee492fcd9854405f067701682",
-  "size": 114099031,
-  "date": "2026-10-23",
-  "notes": "Aynite Download Manager 1.4.3",
+  "version": "1.7.0",
+  "url": "ADM-Setup-1.7.0.exe",
+  "sha256": "0b419e24880befe63ef221cf18ad3130dfcaac854884c6de5b13af85854922cb",
+  "size": 114217119,
+  "date": "2026-11-06",
+  "notes": "Aynite Download Manager 1.7.0",
   "linux": {
     "tar": {
-      "url": "adm-1.4.3-linux-x86_64.tar.gz",
-      "sha256": "bf6796e1ef112e5643943f5f9dfe8b5f4ccb59d158d74a9edb899ea34f01246a",
-      "size": 148649100,
+      "url": "adm-1.7.0-linux-x86_64.tar.gz",
+      "sha256": "6ff32d113fd1e1fd134a11cacd435efe69b8dd827127d9a7db3893bc2a99cd3c",
+      "size": 148774887,
       "arch": "x86_64"
     },
     "deb": {
-      "url": "adm_1.4.3_amd64.deb",
-      "sha256": "65a1c3b07e6b03e5aa289d2ef17f55182d2fea2b4704a28b61a9555f05278162",
-      "size": 119804958,
+      "url": "adm_1.7.0_amd64.deb",
+      "sha256": "5c41a9b67b73d0781e8f0de390c8d23f4ac87bfcf1f758d9a5885b4adb8ec25c",
+      "size": 119912298,
       "arch": "x86_64"
     }
   }

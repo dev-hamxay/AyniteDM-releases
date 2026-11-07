@@ -7,7 +7,7 @@ export default {
     {
       h2: "1. ADM is not running",
       p: [
-        "Click the ADM icon in the browser's toolbar. If the popup says Disconnected, the program is not running or cannot be reached. Start ADM from the Start menu or your application menu; the popup turns to Connected within a second and the button appears on the next video you hover. [If it stays Disconnected](key:helpDisconnected).",
+        "Click the ADM icon in the browser's toolbar. If the popup says ADM is closed, click Start ADM, or start it from the Start menu or your application menu. The popup turns to Connected within a second and the button appears on the next video you hover. [If ADM does not start](key:helpDisconnected).",
       ],
     },
     {

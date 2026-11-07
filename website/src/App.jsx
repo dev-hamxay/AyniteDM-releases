@@ -8,7 +8,7 @@ import { BY_KEY } from "./pages/registry.js";
 
 // True statements shown as badges next to the ratings, so the section is never empty or invented.
 const TRUST = [
-  ["No ads, no bundled extras", "The installer contains ADM and nothing else."],
+  ["Free to use, no bundled extras", "Free with a single in-app ad; a licence removes it. The installer contains ADM and nothing else — no toolbars, no adware."],
   ["Every download can be verified", "The installer's fingerprint is published here, and the built-in updater checks it before installing."],
   ["Your files stay yours", "Nothing about your downloads leaves your computer."],
   ["Updates itself", "New versions install silently in place with one click, and each one brings the latest video-site fixes."],
@@ -94,7 +94,7 @@ const FAQ = [
   ["Does it catch downloads from other programs, not just the browser?", "Downloads started inside other programs cannot be taken over by any download manager. Instead, press Alt+Shift+D and paste the link, drag it onto the ADM window, or turn on the clipboard watch in Options so that a copied link opens ADM by itself."],
   ["Where do my files go?", "In an ADM folder inside your Downloads folder, neatly sorted into Videos, Music, Documents, Programs and so on. You can pick any other folder in Options."],
   ["Does Aynite Download Manager run on Linux?", "Yes. Aynite Download Manager (ADM) runs natively on Linux: a .deb for Ubuntu 22.04+, Linux Mint 21+ and Debian 12+, and an archive for Fedora, openSUSE, Arch and other distributions. The browser add-on works as on Windows. There is no macOS version yet. [ADM for Linux](key:linux), with pages for [Ubuntu](key:ubuntu), [Linux Mint](key:mint), [Debian](key:debian) and [Fedora and Arch](key:fedora)."],
-  ["Is Aynite Download Manager free?", "No. Aynite Download Manager (ADM) is paid software from AyniteSoft, sold with a licence. There are no ads and no bundled extras in the installer. Prices and licence options are on [aynitesoft.com](https://aynitesoft.com)."],
+  ["Is Aynite Download Manager free?", "Yes. Aynite Download Manager (ADM) is free to download and use, supported by a single ad shown inside the program. A licence from AyniteSoft removes that ad; there are no toolbars or bundled extras in the installer either way. Prices and licence options are on [aynitesoft.com](https://aynitesoft.com)."],
   ["Does Aynite Download Manager download torrents?", "Yes. Aynite Download Manager (ADM) opens magnet links and .torrent files and downloads them in the same queue as other downloads, on Windows and Linux; sharing stops when the download finishes unless you choose otherwise. [More on torrents](key:torrent)."],
   ["Is ADM the Android app Advanced Download Manager?", "No. Aynite Download Manager (ADM) is a desktop program for Windows and Linux by AyniteSoft. Advanced Download Manager is an unrelated Android app from another developer. [More about the name](key:adm)."],
 ];
@@ -118,9 +118,9 @@ function Hero(props) {
         </div>
         <p className="hero-os">For Windows 10 and 11{release?.linux ? " and Linux (Ubuntu, Mint, Debian and others)" : ""}</p>
         <p className="hero-fine">
-          No ads, no bundled extras.{" "}
+          Free to use, with one in-app ad.{" "}
           {release?.linux ? <a href={page("linux")}>Also for Linux.</a> : null}{" "}
-          <a href={BUY_URL} target="_blank" rel="noreferrer">Buy a licence</a>
+          <a href={BUY_URL} target="_blank" rel="noreferrer">Buy a licence to remove ads</a>
         </p>
       </div>
     </section>

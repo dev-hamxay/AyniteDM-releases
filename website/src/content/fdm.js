@@ -1,7 +1,7 @@
 export default {
   key: "fdm",
   h1: "Aynite Download Manager (ADM) or Free Download Manager? A factual comparison",
-  lead: "Free Download Manager (FDM) is free, runs on Windows, macOS, Linux and Android, and downloads torrents. Aynite Download Manager is a paid Windows and Linux program with a button on every video that lists every quality, live stream recording, and silent in-place updates that bring video-site fixes. What is the same and what is not, as of October 2026.",
+  lead: "Free Download Manager (FDM) is free, runs on Windows, macOS, Linux and Android, and downloads torrents. Aynite Download Manager is a free Windows and Linux program (supported by a single in-app ad a licence removes) with a button on every video that lists every quality, live stream recording, and silent in-place updates that bring video-site fixes. What is the same and what is not, as of October 2026.",
   checked: "October 2026",
   updated: "14 October 2026",
   download: "windows",
@@ -11,7 +11,7 @@ export default {
       table: {
         cols: ["", "Aynite Download Manager", "Free Download Manager"],
         rows: [
-          ["Price", "Paid licence; no ads, no bundled extras", "Free"],
+          ["Price", "Free with one in-app ad; a licence removes it", "Free"],
           ["Runs on", "Windows 10 and 11; Linux (Ubuntu, Mint, Debian and others)", "Windows, macOS, Linux, Android"],
           ["Several connections, pause and resume", "Yes", "Yes"],
           ["Browser add-on", "Chrome, Edge, Brave and Firefox: Download button on videos, right-click menu, takes over browser downloads", "Add-ons for the main browsers: catches downloads and videos"],
@@ -54,7 +54,7 @@ export default {
     {
       h2: "Price and licence",
       p: [
-        "Free Download Manager is free. Aynite Download Manager is a paid product with a licence from AyniteSoft; prices are on [aynitesoft.com](https://aynitesoft.com). If free is what decides, FDM is the honest answer. ADM's case is the button that lists every quality on the player, live recording, the file checks and the silent in-place updates, with no ads and no extras anywhere.",
+        "Free Download Manager is free with no ads. Aynite Download Manager is also free to use, supported by a single in-app ad that a licence from AyniteSoft removes; prices are on [aynitesoft.com](https://aynitesoft.com). If a completely ad-free program at no cost is what decides, FDM is the honest answer. ADM's case is the button that lists every quality on the player, live recording, the file checks and the silent in-place updates, with no toolbars or bundled extras.",
       ],
     },
     {

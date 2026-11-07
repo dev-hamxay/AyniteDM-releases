@@ -2,7 +2,7 @@ export default {
   key: "windows",
   updated: "15 October 2026",
   h1: "Download Aynite Download Manager for Windows 10 and 11",
-  lead: "Aynite Download Manager (ADM) for Windows is one 64-bit installer for Windows 10 and 11 with everything inside: the download engine, the video tool, the torrent engine and the browser add-on for Chrome, Edge, Brave and Firefox. No ads, no bundled extras.",
+  lead: "Aynite Download Manager (ADM) for Windows is one 64-bit installer for Windows 10 and 11 with everything inside: the download engine, the video tool, the torrent engine and the browser add-on for Chrome, Edge, Brave and Firefox. Free to use with a single in-app ad; a licence removes it. No toolbars, no bundled extras.",
   download: "windows",
   sections: [
     {
@@ -51,7 +51,7 @@ export default {
       table: {
         cols: ["", "Aynite Download Manager", "Internet Download Manager", "Free Download Manager"],
         rows: [
-          ["Price", "Paid licence, no ads", "Paid after a 30-day trial", "Free"],
+          ["Price", "Free with one in-app ad; a licence removes it", "Paid after a 30-day trial", "Free"],
           ["Also on Linux", "Yes", "No", "Yes"],
           ["Quality list on the video, up to 4K", "Yes", "Video panel; qualities depend on the site", "Video download; qualities depend on the site"],
           ["Torrents and magnet links", "Yes", "No", "Yes"],
@@ -68,9 +68,9 @@ export default {
       ],
     },
     {
-      h2: "Licence",
+      h2: "Free version and licence",
       p: [
-        "Aynite Download Manager (ADM) is a paid product of AyniteSoft. There are no ads, no bundled extras and no upsell screens in the program. Current prices and licence options are on [aynitesoft.com](https://aynitesoft.com).",
+        "Aynite Download Manager (ADM) is free to download and use, with every feature and no limits. The free version shows a single ad inside the program; a licence from AyniteSoft removes it. There are no toolbars and no bundled extras in the installer. Current prices and licence options are on [aynitesoft.com](https://aynitesoft.com).",
       ],
     },
     {

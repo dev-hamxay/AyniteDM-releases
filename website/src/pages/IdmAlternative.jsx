@@ -14,8 +14,8 @@ const TABLE = [
   ["Scheduler and shutdown when done", "Yes", "Yes"],
   ["Checks on finished files", "Virus scan with your system's security software, damage check", "Virus scan with a scanner you point it to"],
   ["Updates", "Installs itself silently; video-site fixes come with each update", "Checks for new versions"],
-  ["Ads or bundled extras", "None", "None"],
-  ["Price", "Paid licence from AyniteSoft; prices on aynitesoft.com", "Paid licence after a trial period"],
+  ["Ads or bundled extras", "One in-app ad in the free version, removed by a licence; no toolbars or bundled extras", "None"],
+  ["Price", "Free to use; a licence from AyniteSoft removes the ad (prices on aynitesoft.com)", "Paid licence after a trial period"],
 ];
 
 const SWITCH = [
@@ -25,7 +25,7 @@ const SWITCH = [
 ];
 
 const FAQ = [
-  ["Is IDM free?", "No. Internet Download Manager comes with a 30-day trial and then needs a paid licence. Aynite Download Manager is licensed too; current prices are on aynitesoft.com."],
+  ["Is IDM free?", "No. Internet Download Manager comes with a 30-day trial and then needs a paid licence. Aynite Download Manager is free to use with a single in-app ad; a licence removes it, and current prices are on aynitesoft.com."],
   ["Can I keep IDM installed while I try ADM?", "Yes. Install both and decide later. Only one of them should catch browser downloads at a time, so turn off that option in one of them."],
   ["Does ADM read IDM's download list or settings?", "No. It starts with an empty list. Paste the links you still need."],
   ["What does ADM do that IDM does not?", "Aynite Download Manager runs on Linux, records live broadcasts, downloads torrents and magnet links, and installs its own updates silently in place."],
@@ -43,7 +43,7 @@ export default function IdmAlternative() {
             <Crumbs items={["Compare with IDM"]} />
             <h1>Aynite Download Manager vs Internet Download Manager (IDM): an alternative that also runs on Linux</h1>
             <p className="lead">
-              Aynite Download Manager (ADM) is a paid alternative to Internet Download Manager (IDM) for Windows 10, 11
+              Aynite Download Manager (ADM) is a free alternative to Internet Download Manager (IDM) for Windows 10, 11
               and Linux. Like IDM, it speeds up downloads with several connections, resumes them and adds a Download
               button to the browser; unlike IDM, it also runs on Linux, records live streams, downloads torrents and
               magnet links, and lists video qualities up to 4K. Here is an honest side-by-side, last checked in October 2026.

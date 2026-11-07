@@ -1,0 +1,4 @@
+{
+  "_comment": "House-ad feed for the free version of ADM. Add objects to \"ads\" to show banners in the app; leave it empty to show ADM's built-in 'buy a licence to remove ads' promo. Each ad: {\"image\": \"https://.../banner.png\", \"link\": \"https://...\", \"alt\": \"short description\"}. Only https image+link ads are shown; the app picks one at random.",
+  "ads": []
+}

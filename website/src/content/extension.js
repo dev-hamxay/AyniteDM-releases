@@ -11,7 +11,8 @@ export default {
         "Shows a Download button when you hover a video. Its arrow opens the quality list: every size the site offers, up to 4K, plus audio-only MP3 and M4A.",
         "Adds three entries to the right-click menu: Download with ADM for a link, picture or video; Download video from this page; and Download all links on this page, which opens the [Grabber](key:guideGrab).",
         "Can take over the browser's normal downloads, so a file you click starts in ADM with several connections instead of in the browser's download panel. This is a switch in the popup; leave it off if you prefer.",
-        "Shows Connected in its popup while ADM is running, with the version number, and Disconnected when it is not.",
+        "Catches magnet links and links to .torrent files when you click them, and the torrent starts in ADM straight away. This is a switch in the popup too.",
+        "Starts ADM by itself when ADM is closed and you send it a link. The popup shows Connected while ADM is running, with the version number, and a Start ADM button when it is not.",
         "Passes your sign-in to ADM for videos that need it, but only when you start a download from that page and only if Send cookies for protected files is on in the popup.",
         "Tells you when a video is protected by DRM (Netflix, Prime Video, Disney+) instead of staying silent: no download manager can save those.",
       ],
@@ -67,14 +68,14 @@ export default {
     {
       h2: "Not working?",
       list: [
-        "The popup says Disconnected: ADM is not running, or something is blocking its local connection. [What to check](key:helpDisconnected).",
+        "The add-on says it could not start ADM: the add-on or ADM may be older than this feature, or something is blocking its local connection. [What to check](key:helpDisconnected).",
         "There is no Download button on a video: the video may be protected, need a sign-in, or live inside a player the add-on does not see yet. [Causes and fixes](key:helpButton).",
         "Chrome shows a notice about developer mode extensions at start: that is Chrome's standard message for any add-on loaded from a folder. Click Cancel to keep the add-on; it goes away once the add-on is installed from the Chrome Web Store.",
       ],
     },
   ],
   faq: [
-    ["Does the add-on download files itself?", "No. It hands links and videos to the ADM program on the same computer, which does the downloading. Without ADM running, the add-on shows Disconnected and does nothing."],
+    ["Does the add-on download files itself?", "No. It hands links and videos to the ADM program on the same computer, which does the downloading. If ADM is closed, the add-on starts it when you send a link. Merely browsing or hovering over videos never starts it."],
     ["Which browsers work?", "Google Chrome, Microsoft Edge, Brave and Chromium, on Windows and Linux, including Flatpak and Snap builds. Firefox: the Developer Edition and ESR editions (including the firefox-esr that Debian ships) install the add-on today after you allow unsigned add-ons; regular Firefox, including Ubuntu's Snap and the Flathub build, accepts it once Mozilla has signed it."],
     ["Does it work in Opera, Vivaldi or other Chromium browsers?", "The Chrome package can usually be loaded unpacked in them, but ADM sets up and tests only Chrome, Edge, Brave and Firefox."],
     ["Does the add-on slow the browser down?", "No. It does nothing until you hover a video, right-click, or start a download; it keeps no history and runs no background work."],

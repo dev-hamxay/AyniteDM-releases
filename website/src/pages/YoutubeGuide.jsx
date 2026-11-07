@@ -34,7 +34,7 @@ export default function YoutubeGuide() {
               With Aynite Download Manager (ADM), saving a video takes one click on the player and one pick from the quality list. This guide
               shows the steps on Windows and Linux, how to keep only the sound, how to handle playlists and live streams,
               and what cannot be downloaded. Without the add-on, paste the video's address into Add URL and pick the quality
-              the same way. ADM is a paid program with no ads; when YouTube changes, the fix comes with ADM's next update, installed silently.
+              the same way. ADM is free to use, supported by one in-app ad a licence removes; when YouTube changes, the fix comes with ADM's next update, installed silently.
             </p>
           </div>
         </section>

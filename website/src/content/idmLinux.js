@@ -30,7 +30,7 @@ export default {
       table: {
         cols: ["", "Button on videos", "Takes over browser downloads", "Torrents", "Live recording", "Price"],
         rows: [
-          ["Aynite Download Manager (ADM), ours", "Yes, with every quality the site offers (Chrome, Chromium, Brave; Firefox ESR and Developer Edition)", "Yes", "Yes", "Yes", "Paid"],
+          ["Aynite Download Manager (ADM), ours", "Yes, with every quality the site offers (Chrome, Chromium, Brave; Firefox ESR and Developer Edition)", "Yes", "Yes", "Yes", "Free; a licence removes the in-app ad"],
           ["Free Download Manager", "Video download through its add-on", "Yes", "Yes", "No", "Free"],
           ["Xtreme Download Manager", "Yes, video capture", "Yes", "No", "No", "Free, open source; status unclear in 2026"],
           ["Persepolis", "Video from YouTube and some sites", "Through its extension", "No", "No", "Free, open source"],
@@ -43,7 +43,7 @@ export default {
     {
       h2: "The browser button, natively: ADM on Ubuntu, Mint, Debian, Fedora and Arch",
       p: [
-        "Aynite Download Manager was built to pass exactly the test that Wine fails. On Linux it installs from a .deb on Ubuntu, Linux Mint and Debian, or from an archive on Fedora, openSUSE, Arch and the others, and its add-on puts the Download button with the full quality list on every video in Chrome, Chromium and Brave, and in Firefox ESR and Developer Edition. A click on a link in the browser lands in ADM, with several connections, pause and resume, and the same scheduler, torrents and live recording as on Windows. It is a paid program; there are no ads and no bundled extras.",
+        "Aynite Download Manager was built to pass exactly the test that Wine fails. On Linux it installs from a .deb on Ubuntu, Linux Mint and Debian, or from an archive on Fedora, openSUSE, Arch and the others, and its add-on puts the Download button with the full quality list on every video in Chrome, Chromium and Brave, and in Firefox ESR and Developer Edition. A click on a link in the browser lands in ADM, with several connections, pause and resume, and the same scheduler, torrents and live recording as on Windows. It is free to use, supported by a single in-app ad that a licence removes; there are no toolbars or bundled extras.",
         "Pages per distribution: [Ubuntu](key:ubuntu), [Linux Mint](key:mint), [Debian](key:debian), [Fedora, openSUSE and Arch](key:fedora). The full [comparison with IDM](key:idm) and the [round-up of IDM alternatives](key:alternatives) cover the rest.",
       ],
       shot: { src: "screenshots/youtube-button.jpg", alt: "The Aynite Download Manager Download button with its quality list over a video, the part that does not work for IDM under Wine", eager: true },
@@ -54,7 +54,7 @@ export default {
     ["Can I use the IDM browser extension on Linux?", "Not with a Wine-hosted IDM: the Linux browser cannot reach it, so the download panel does not appear. That is the part that makes people give up on the Wine route."],
     ["Is a cracked IDM for Linux safe?", "No. Cracked builds are a common carrier of malware, and they stop working on the next update. Use a trial of a native manager instead, or a free one from the table above."],
     ["Is the IDM PPA or GitHub package trustworthy?", "They are third-party repackagings of the Windows program plus Wine. They are not from IDM's maker, and you take on the same Wine limits plus whatever the packager changed."],
-    ["Which native manager is closest to IDM on Linux?", "For the browser button on videos with every quality, download takeover, torrents and live recording in one program: Aynite Download Manager, which is paid. For a free option with torrents and add-ons: Free Download Manager."],
+    ["Which native manager is closest to IDM on Linux?", "For the browser button on videos with every quality, download takeover, torrents and live recording in one program: Aynite Download Manager, free with an in-app ad you can remove. For a fully free, open-source option with torrents and add-ons: Free Download Manager."],
   ],
   related: ["linux", "idm", "alternatives", "ubuntu", "extension"],
 };

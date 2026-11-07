@@ -1,11 +1,34 @@
 export default {
   key: "whatsnew",
-  updated: "23 October 2026",
+  updated: "6 November 2026",
   h1: "What's new in Aynite Download Manager",
   lead: "Every version of Aynite Download Manager (ADM) and its browser add-on, newest first. ADM installs its updates by itself, silently and in place; each version brings the latest support for video sites.",
   download: "windows",
   cta: false,
   sections: [
+    {
+      h2: "1.7.0 and browser add-on 1.4.0 (6 November 2026)",
+      list: [
+        "Aynite Download Manager is now free to download and use, with every feature and no limits. The free version shows one small ad inside the program; a licence removes it. Buy a licence, then enter it under Help, then Activate Licence.",
+        "Subtitles: choose one or more languages when you add a video, then save them as SRT or VTT files or keep them inside the video. Automatic captions are offered too and are marked as automatic.",
+        "Title, channel, date, chapters and cover art can now be written into the file, for videos and for MP3 and M4A audio. Both are on by default, and you can turn them off in the Add window.",
+        "MKV: save videos as MP4 or MKV. MKV takes the best streams a site offers, which on many sites is better than what fits in MP4.",
+        "Recordings can stop by themselves: in the Add window, set a length, such as 1 hour 30 minutes, or a time of day. ADM stops and keeps the file. A recording still ends when the broadcast does.",
+        "File name rules: build names from the title, channel, date, quality and more. Playlists can be numbered, and {episode} gives names such as S01E03. Set a rule in the Add window or in Options.",
+        "If subtitles or cover art cannot be fetched, the video still downloads and ADM tells you what is missing.",
+        "Fixed: a title with a dot in it, such as Mr. Beast, could lose everything after the dot in the suggested file name.",
+        "Click a magnet link in your browser and the torrent starts in ADM straight away. The same goes for a link to a .torrent file. You get a small progress window and a notice, with no questions in between.",
+        "Open .torrent files: double-click one, drag it onto the window, use Tasks, then Open Torrent File, or the button in Add URL. ADM keeps its own copy, so the download can still resume if the original file is deleted.",
+        "Magnet links on a page now appear in the grabber, so you can queue them together with the page's other links.",
+        "ADM starts with your computer and waits in the system tray, so it is ready for the browser. You can turn this off in Options.",
+        "When ADM is closed, or was ended in Task Manager, sending it a link starts it and the link goes through. You no longer see \"Could not reach ADM\".",
+        "Zoom recordings: paste a recording link or use the Download button on its page, then choose screen and camera, screen only, camera only or audio. If the recording has a passcode, ADM asks for it.",
+        "Fixed: downloads saved to a folder you picked could end with \"Threat detected by Windows Defender\" when nothing was found. The scan had failed, and ADM reported that as a threat. ADM now scans these files properly and corrects rows that were marked wrongly.",
+        "Fixed: downloads that were running when ADM updated could stay paused. They now continue by themselves.",
+        "A torrent now shows Connecting until data starts to flow, instead of Downloading at 0%.",
+        "To get these browser features, remove the old add-on from your browser and install it again from ADM, once. ADM reminds you the first time it opens after the update.",
+      ],
+    },
     {
       h2: "1.4.3 (23 October 2026)",
       list: [

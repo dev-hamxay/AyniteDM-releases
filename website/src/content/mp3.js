@@ -1,8 +1,8 @@
 export default {
   key: "mp3",
-  updated: "14 October 2026",
+  updated: "6 November 2026",
   h1: "Save YouTube audio as MP3 or M4A with Aynite Download Manager",
-  lead: "Keep just the sound of a YouTube video with Aynite Download Manager (ADM): hover the player, click the arrow next to Download and choose Audio only, then MP3 or M4A. ADM fetches the best audio the site offers and converts it to MP3, or keeps the original M4A untouched. Whole playlists too. No ads, no limit on length or count.",
+  lead: "Keep just the sound of a YouTube video with Aynite Download Manager (ADM): hover the player, click the arrow next to Download and choose Audio only, then MP3 or M4A. ADM fetches the best audio the site offers and converts it to MP3, or keeps the original M4A untouched. Whole playlists too. No limit on length or count.",
   download: "windows",
   sections: [
     {
@@ -18,6 +18,12 @@ export default {
       h2: "MP3 or M4A: which to pick",
       p: [
         "M4A keeps the AAC audio stream YouTube serves, untouched, so nothing is lost and the download takes seconds. MP3 is converted from the best audio stream the site offers at 192 kbit/s, and every player, car stereo and phone understands it. Pick M4A for quality and speed, MP3 for compatibility.",
+      ],
+    },
+    {
+      h2: "Title and cover art in the file",
+      p: [
+        "ADM writes the title, channel and date into the file and adds the video's picture as cover art, so music players show them. Both are on by default. To turn either off, untick Title and details or Cover art in the Add window.",
       ],
     },
     {

@@ -30,6 +30,7 @@ jobs:
       VITE_BUY_URL: ${{ vars.BUY_URL }}
       VITE_FEEDBACK_URL: ${{ vars.FEEDBACK_URL }}
       VITE_VIDEO_URL: ${{ vars.VIDEO_URL }}
+      VITE_ADSENSE_CLIENT: ${{ vars.VITE_ADSENSE_CLIENT }}   # set this repo variable to your ca-pub-... id to turn on AdSense
     steps:
       - uses: actions/checkout@v4
         with:

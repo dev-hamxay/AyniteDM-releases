@@ -3,7 +3,7 @@ export default {
   updated: "14 October 2026",
   checked: "October 2026",
   h1: "IDM vs FDM: which download manager is better, and where Aynite Download Manager fits",
-  lead: "Internet Download Manager (IDM) is the paid Windows classic. Free Download Manager (FDM) is the free one that also runs on macOS, Linux and Android. The two are compared constantly; here is the comparison with the numbers that decide it, plus a third column for Aynite Download Manager (ADM), which is ours and paid. Facts as the three websites presented them in October 2026.",
+  lead: "Internet Download Manager (IDM) is the paid Windows classic. Free Download Manager (FDM) is the free one that also runs on macOS, Linux and Android. The two are compared constantly; here is the comparison with the numbers that decide it, plus a third column for Aynite Download Manager (ADM), which is ours and free with an in-app ad you can remove. Facts as the three websites presented them in October 2026.",
   download: "windows",
   sections: [
     {
@@ -11,7 +11,7 @@ export default {
       list: [
         "Pick IDM if you are on Windows only, want the most-tested browser panel on video sites, and do not need torrents.",
         "Pick FDM if free is the deciding factor, or you also use macOS or Android, and you want torrents in the same program.",
-        "Pick Aynite Download Manager if you want Windows and Linux, a quality list on every video up to 4K, torrents, live stream recording and silent in-place updates, and a licence is acceptable.",
+        "Pick Aynite Download Manager if you want Windows and Linux, a quality list on every video up to 4K, torrents, live stream recording and silent in-place updates, free to use with a single in-app ad you can remove with a licence.",
       ],
     },
     {
@@ -19,7 +19,7 @@ export default {
       table: {
         cols: ["", "Internet Download Manager", "Free Download Manager", "Aynite Download Manager"],
         rows: [
-          ["Price", "Paid after a 30-day trial; its site lists lifetime and yearly licences", "Free", "Paid licence; no ads, no bundled extras"],
+          ["Price", "Paid after a 30-day trial; its site lists lifetime and yearly licences", "Free", "Free with one in-app ad; a licence removes it"],
           ["Runs on", "Windows (including older versions)", "Windows, macOS, Linux, Android", "64-bit Windows 10 and 11; Linux"],
           ["Several connections, pause and resume", "Yes", "Yes", "Yes, up to 32 per file"],
           ["Browser add-on", "Its own module for all popular browsers: download panel on videos, download takeover", "Add-ons for the main browsers: downloads and videos", "Chrome, Edge, Brave and Firefox: Download button with every quality, right-click menu, download takeover"],

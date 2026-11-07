@@ -2,7 +2,7 @@ export default {
   key: "adm",
   updated: "15 October 2026",
   h1: "ADM download manager for PC: Aynite Download Manager for Windows 11, Windows 10 and Linux",
-  lead: "ADM, short for Aynite Download Manager, is a paid desktop download manager and video downloader for Windows 10, Windows 11 and Linux, made by AyniteSoft. It is a different product from the Android app Advanced Download Manager, which is also called ADM. Windows gets one 64-bit installer; Linux gets a .deb for Ubuntu, Mint and Debian and an archive for other distributions.",
+  lead: "ADM, short for Aynite Download Manager, is a free desktop download manager and video downloader for Windows 10, Windows 11 and Linux, made by AyniteSoft, supported by a single in-app ad that a licence removes. It is a different product from the Android app Advanced Download Manager, which is also called ADM. Windows gets one 64-bit installer; Linux gets a .deb for Ubuntu, Mint and Debian and an archive for other distributions.",
   download: "windows",
   sections: [
     {
@@ -44,7 +44,7 @@ export default {
     },
   ],
   faq: [
-    ["Is ADM free?", "No. Aynite Download Manager is a paid product with a licence from AyniteSoft. There are no ads and no bundled extras. Prices are on [aynitesoft.com](https://aynitesoft.com)."],
+    ["Is ADM free?", "Yes. Aynite Download Manager is free to download and use, supported by one ad shown inside the program; a licence from AyniteSoft removes it. There are no toolbars or bundled extras either way. Prices are on [aynitesoft.com](https://aynitesoft.com)."],
     ["Is ADM for PC the same as Advanced Download Manager?", "No. Advanced Download Manager is an Android app by another developer. Aynite Download Manager (ADM) is a Windows and Linux program by AyniteSoft; the two share nothing but the initials."],
     ["Is there a 64-bit ADM for Windows 11?", "Yes. The installer is 64-bit and runs on Windows 11 and Windows 10. 32-bit Windows is not supported."],
     ["Does ADM work with Chrome, Edge, Brave and Firefox?", "Yes, through its [browser add-on](key:extension), which ADM sets up for you on its first start."],

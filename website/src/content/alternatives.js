@@ -14,7 +14,7 @@ export default {
         "Minimal and modern for files and torrents, no video sites: Motrix or Gopeed.",
         "Links only, inside the browser: DownThemAll.",
         "Linux desktop, free, with video: Persepolis.",
-        "A button on every video with every quality, live recording, torrents, Windows and Linux, and a licence is acceptable: Aynite Download Manager (ours).",
+        "A button on every video with every quality, live recording, torrents, Windows and Linux, free with an in-app ad you can remove: Aynite Download Manager (ours).",
       ],
     },
     {
@@ -29,7 +29,7 @@ export default {
         cols: ["", "Platforms", "Button on videos", "Takes over browser downloads", "Torrents", "Live recording", "Price"],
         rows: [
           ["Internet Download Manager (the baseline)", "Windows", "Yes, its download panel", "Yes", "No", "No", "Paid after a 30-day trial"],
-          ["Aynite Download Manager (ADM), ours", "Windows, Linux", "Yes, with every quality the site offers", "Yes", "Yes", "Yes", "Paid"],
+          ["Aynite Download Manager (ADM), ours", "Windows, Linux", "Yes, with every quality the site offers", "Yes", "Yes", "Yes", "Free; a licence removes the in-app ad"],
           ["Free Download Manager", "Windows, macOS, Linux, Android", "Video download through its add-on", "Yes", "Yes", "No", "Free"],
           ["Xtreme Download Manager", "Windows, macOS, Linux", "Yes, video capture", "Yes", "No", "No", "Free, open source; status unclear in 2026"],
           ["JDownloader 2", "Windows, macOS, Linux, NAS", "Links via clipboard and its extension", "Partly", "No", "No", "Free, open source"],
@@ -109,8 +109,8 @@ export default {
     {
       h2: "Aynite Download Manager (ours)",
       p: [
-        "Paid · Windows, Linux · add-on for Chrome, Edge, Brave and Firefox · active in 2026 · [this site](key:home)",
-        "Aynite Download Manager (ADM) is a paid program for Windows and Linux by AyniteSoft, built to pass the browser-button test: a Download button on every video with the full quality list up to 4K and MP3, Download with ADM in the right-click menu, and a switch that takes over the browser's downloads. It adds torrents, live stream recording, a scheduler, file checks and silent in-place updates that bring video-site fixes. For: the button, Linux, torrents, live recording, no ads. Against: paid, no macOS version, no subtitle download. [Compared with IDM feature by feature](key:idm).",
+        "Free, with an in-app ad you can remove · Windows, Linux · add-on for Chrome, Edge, Brave and Firefox · active in 2026 · [this site](key:home)",
+        "Aynite Download Manager (ADM) is a free program for Windows and Linux by AyniteSoft, built to pass the browser-button test: a Download button on every video with the full quality list up to 4K and MP3, Download with ADM in the right-click menu, and a switch that takes over the browser's downloads. It adds torrents, live stream recording, a scheduler, file checks and silent in-place updates that bring video-site fixes. For: the button, Linux, torrents, live recording, free to use. Against: a single in-app ad unless you buy a licence, no macOS version. [Compared with IDM feature by feature](key:idm).",
       ],
       shot: { src: "screenshots/youtube-button.jpg", alt: "The Aynite Download Manager Download button with its quality list over a YouTube video, the browser-button test in practice" },
     },
@@ -122,7 +122,7 @@ export default {
     },
   ],
   faq: [
-    ["What is the best IDM alternative in 2026?", "There is no single answer. Free and cross-platform: Free Download Manager. File hosters: JDownloader 2. A button on every video with every quality, plus torrents and live recording, on Windows and Linux: Aynite Download Manager, which is ours and paid."],
+    ["What is the best IDM alternative in 2026?", "There is no single answer. Free and cross-platform: Free Download Manager. File hosters: JDownloader 2. A button on every video with every quality, plus torrents and live recording, on Windows and Linux: Aynite Download Manager, which is ours and free with an in-app ad you can remove by buying a licence."],
     ["Is there an IDM for Linux?", "No. Internet Download Manager runs only on Windows. Aynite Download Manager, Free Download Manager, XDM, Motrix, Gopeed and Persepolis all run natively on Linux; [what happens when people run IDM under Wine](key:idmLinux)."],
     ["Is there a free IDM alternative with a browser extension?", "Free Download Manager, Xtreme Download Manager, AB Download Manager and DownThemAll all have one. Judge each on whether it shows a button on the videos you watch."],
     ["Can IDM run on Linux with Wine?", "People try, and reports are mixed; the browser integration is the part that breaks. A native program is the simpler route."],

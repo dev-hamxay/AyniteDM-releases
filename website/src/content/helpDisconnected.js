@@ -1,19 +1,19 @@
 export default {
   key: "helpDisconnected",
-  updated: "14 October 2026",
+  updated: "5 November 2026",
   h1: "The Aynite Download Manager add-on says Disconnected: what to check",
-  lead: "The Aynite Download Manager add-on talks to the ADM program on your own computer. When the popup says Disconnected, the program is not running or the add-on cannot reach it. Work through these checks in order; the first two cover almost every case.",
+  lead: "The Aynite Download Manager add-on talks to the ADM program on your own computer. ADM starts with your computer, and if it is closed, the add-on starts it as soon as you send a link. If the add-on still reports that it could not start ADM, work through these checks in order; the first two cover almost every case.",
   sections: [
     {
-      h2: "1. Is ADM running?",
+      h2: "1. Is your add-on or ADM older than this feature?",
       p: [
-        "Look for the ADM icon in the system tray (Windows: the arrow at the right of the taskbar; Linux: your desktop's tray area). If it is not there, start ADM from the Start menu or your application menu. The popup turns to Connected within a second. If you want ADM to be there whenever you need it, turn on Start with Windows (or with your session) in Options.",
+        "Starting ADM from the browser needs ADM 1.5.0 or newer and add-on 1.4.0 or newer. Update ADM, then remove the old add-on from your browser's extensions page and install it again from Tools, then Install Browser Add-on. You only need to do this once.",
       ],
     },
     {
-      h2: "2. Did you close the window rather than exit?",
+      h2: "2. Has ADM been opened once since it was installed?",
       p: [
-        "Closing ADM's window keeps it running in the tray, which is what you want: the add-on keeps working. Exit from the tray icon's menu stops it, and the add-on shows Disconnected until the next start.",
+        "The add-on starts the copy of ADM that last registered itself. Start ADM once from the Start menu or your application menu; the popup turns to Connected within a second, and from then on it starts by itself. Closing the window keeps ADM in the tray. Exit from the tray icon's menu stops it until the next link, the next start of your computer, or until you open it yourself. To stop it starting with your computer, turn off Start with Windows (or with your session) in Options.",
       ],
     },
     {
@@ -37,7 +37,7 @@ export default {
     {
       h2: "Linux notes",
       p: [
-        "Browsers installed from Flatpak or Snap can reach local connections normally, so they work with the add-on. If the tray icon is missing on GNOME, ADM is still running; the popup should say Connected regardless.",
+        "Browsers installed from Flatpak or Snap can reach local connections normally, so they work with the add-on while ADM is running, but their sandbox does not let them start programs: keep ADM running, or start it from your application menu. If the tray icon is missing on GNOME, ADM is still running; the popup should say Connected regardless.",
       ],
     },
   ],

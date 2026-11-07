@@ -8,8 +8,8 @@ export default {
     {
       h2: "Open a magnet link or a .torrent file",
       p: [
-        "Paste a magnet link into Add URL, or, with the clipboard watch turned on in Options, simply copy it and ADM opens with the link filled in. Drag a .torrent file onto the window, or open it from Add URL. On Linux, ADM also registers itself for magnet links and .torrent files, so a click in the browser opens it.",
-        "The torrent lands in the Torrents category and starts like any other download, with its own folder under Downloads\\ADM.",
+        "Click a magnet link or a link to a .torrent file in your browser and the torrent starts in ADM straight away, even if ADM was closed. ADM also registers itself for magnet links and .torrent files on Windows and Linux, so a double-click on a .torrent file opens it too. You can also drag a .torrent file onto the window, use Tasks, then Open Torrent File, or paste a magnet link into Add URL.",
+        "The torrent lands in the Torrents category and starts like any other download, with its own folder under Downloads\\ADM. If you would rather choose a folder each time, turn off the immediate start under Options, Torrents, and the Add window opens first.",
       ],
     },
     {

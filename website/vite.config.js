@@ -12,6 +12,10 @@ const DOWNLOAD_BASE = (process.env.VITE_DOWNLOAD_BASE || "").replace(/\/?$/, "/"
 const BUY_URL = process.env.VITE_BUY_URL || process.env.VITE_SUPPORT_URL || "https://aynitesoft.com";
 const PRICE = (process.env.VITE_PRICE || "").trim();                 // "19.99": the Offer carries a price once set
 const CURRENCY = (process.env.VITE_PRICE_CURRENCY || "USD").trim();
+// Google AdSense on the WEBSITE only (never in the desktop app: AdSense policy forbids ads in software). Set
+// VITE_ADSENSE_CLIENT to your publisher id, e.g. "ca-pub-1234567890123456", once your account is approved and you
+// have a consent mechanism (CMP) in place. Empty = no AdSense script, no ads.txt: the site stays clean.
+const ADSENSE_CLIENT = (process.env.VITE_ADSENSE_CLIENT || "").trim();
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "public", "downloads", "update.json"), "utf8"));
 const TODAY = new Date().toISOString().slice(0, 10);
 const LASTMOD = manifest.date || TODAY;
@@ -46,7 +50,7 @@ const pageFirstDate = (p) => gitDate(filesFor(p), true);
 const FULL_NAME = "Aynite Download Manager";
 const COMPANY = { "@type": "Organization", "@id": "https://aynitesoft.com/#organization", name: "AyniteSoft",
   url: "https://aynitesoft.com", logo: SITE_URL + "apple-touch-icon.png",
-  description: "Maker of Aynite Download Manager (ADM), a paid download manager and video downloader for Windows and Linux." };
+  description: "Maker of Aynite Download Manager (ADM), a download manager and video downloader for Windows and Linux." };
 const WEBSITE = { "@type": "WebSite", "@id": SITE_URL + "#website", url: SITE_URL, name: FULL_NAME, alternateName: ["ADM", "AyniteDM"],
   inLanguage: "en", publisher: { "@id": COMPANY["@id"] } };
 
@@ -56,7 +60,7 @@ function installerUrl() {
 }
 
 const SOFTWARE = {
-  "@type": "SoftwareApplication", "@id": SITE_URL + "#software", name: FULL_NAME, alternateName: ["ADM", "AyniteDM"], isAccessibleForFree: false,
+  "@type": "SoftwareApplication", "@id": SITE_URL + "#software", name: FULL_NAME, alternateName: ["ADM", "AyniteDM"], isAccessibleForFree: true,
   description: "A download manager and video downloader for Windows and Linux: faster downloads with several connections, "
     + "videos from YouTube and over 1,800 sites in the quality you choose, live stream recording, torrents, "
     + "and automatic resume.",
@@ -76,7 +80,7 @@ const SOFTWARE = {
 
 const pageUrl = (p) => SITE_URL + p.path;
 
-const SOFTWARE_STUB = { "@type": "SoftwareApplication", "@id": SITE_URL + "#software", name: FULL_NAME, alternateName: ["ADM", "AyniteDM"], isAccessibleForFree: false,
+const SOFTWARE_STUB = { "@type": "SoftwareApplication", "@id": SITE_URL + "#software", name: FULL_NAME, alternateName: ["ADM", "AyniteDM"], isAccessibleForFree: true,
   url: SITE_URL, applicationCategory: "UtilitiesApplication", operatingSystem: "Windows 10, Windows 11, Linux" };
 
 function pageGraph(p) {
@@ -213,6 +217,11 @@ function siteFiles() {
           { tag: "link", attrs: { rel: "apple-touch-icon", sizes: "180x180", href: SITE_URL + "apple-touch-icon.png" }, injectTo: "head" },
           { tag: "script", attrs: { type: "application/ld+json" }, children: JSON.stringify(graph), injectTo: "head" },
         ];
+        if (ADSENSE_CLIENT) {
+          // Website-only AdSense loader (auto ads). Enable auto ads and add a consent CMP in your AdSense account.
+          tags.push({ tag: "script", attrs: { async: true, crossorigin: "anonymous",
+            src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}` }, injectTo: "head" });
+        }
         return { html, tags };
       },
     },
@@ -223,6 +232,10 @@ function siteFiles() {
       this.emitFile({ type: "asset", fileName: "llms.txt", source: llmsTxt() });
       this.emitFile({ type: "asset", fileName: "privacy.html", source: withSiteUrl("privacy.src.html") });
       this.emitFile({ type: "asset", fileName: "404.html", source: withSiteUrl("404.src.html") });
+      if (ADSENSE_CLIENT) {
+        const pub = ADSENSE_CLIENT.replace(/^ca-/, "");   // ads.txt wants pub-..., not ca-pub-...
+        this.emitFile({ type: "asset", fileName: "ads.txt", source: `google.com, ${pub}, DIRECT, f08c47fec0942fa0\n` });
+      }
     },
   };
 }
