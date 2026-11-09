@@ -8,15 +8,15 @@ import {
 // Natural pixel sizes of the program screenshots (rendered at triple density), so the browser can reserve
 // their space before they load and pick the right WebP variant.
 export const SHOTS = {
-  "screenshots/main.png": [3360, 1920],
-  "screenshots/progress.png": [1860, 1290],
-  "screenshots/youtube-button.jpg": [2667, 1521],
-  "screenshots/live.png": [1860, 1290],
-  "screenshots/addon.png": [1740, 900],
-  "screenshots/grabber.png": [2880, 1680],
-  "screenshots/scheduler.png": [1560, 1080],
-  "screenshots/torrent.png": [1920, 1140],
-  "screenshots/complete.png": [1680, 750],
+  "screenshots/main.png": [1900, 966],
+  "screenshots/progress.png": [1186, 879],
+  "screenshots/youtube-button.jpg": [942, 534],
+  "screenshots/live.png": [1186, 849],
+  "screenshots/addon.png": [1246, 729],
+  "screenshots/grabber.png": [1486, 999],
+  "screenshots/scheduler.png": [976, 849],
+  "screenshots/torrent.png": [1276, 819],
+  "screenshots/complete.png": [946, 549],
 };
 
 export function Shot({ src, alt, eager = false, className }) {

@@ -156,9 +156,9 @@ function llmsTxt() {
   const optional = PAGES.filter((p) => !listed.has(p.key) && p.key !== "home").map(link);
   return `# ${FULL_NAME} (ADM)
 
-> Download manager and video downloader for Windows 10, 11 and Linux by AyniteSoft: multi-connection downloads with pause and resume, videos from YouTube and 1,800+ sites up to 4K or as MP3, live stream recording, torrents and magnet links, a scheduler and a browser add-on for Chrome, Edge, Brave and Firefox. Paid licence, no ads, no bundled extras. "ADM" on this site always means Aynite Download Manager, not the Android app Advanced Download Manager.
+> Download manager and video downloader for Windows 10, 11 and Linux by AyniteSoft: multi-connection downloads with pause and resume, videos from YouTube and 1,800+ sites up to 4K or as MP3, live stream recording, torrents and magnet links, a scheduler and a browser add-on for Chrome, Edge, Brave and Firefox. Free to use with every feature and a single in-app ad; a licence from AyniteSoft removes the ad. No bundled extras. "ADM" on this site always means Aynite Download Manager, not the Android app Advanced Download Manager.
 
-- Price: paid licence from AyniteSoft; no ads, no bundled extras. Prices and licence options: https://aynitesoft.com
+- Price: free to use with all features and one in-app ad; a licence from AyniteSoft removes the ad. No bundled extras. Prices and licence options: https://aynitesoft.com
 - Platforms: 64-bit Windows 10 and 11; Ubuntu 22.04+, Linux Mint 21+, Debian 12+ (.deb); Fedora, openSUSE, Arch and other 2022+ distributions (.tar.gz). No macOS or Android version.
 - Torrents and magnet links: built in, on Windows and Linux.
 - Video: YouTube and 1,800+ sites up to 4K, MP3 and M4A, playlists, live stream recording. No DRM circumvention.
